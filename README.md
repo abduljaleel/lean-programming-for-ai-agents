@@ -5,7 +5,7 @@
 <h1 align="center">Lean Programming for AI Agents</h1>
 
 <p align="center">
-  <em>Machine-checked contracts, specs and proofs for agent systems</em><br>
+  <em>Verified Contracts, Specs and Proofs for Agentic Systems</em><br>
   Abdul Kavungal (AK)<br>
   Award Winning Creations
 </p>
@@ -25,7 +25,7 @@ This repository is the companion Lake package for the book. Every Lean listing f
 | | |
 |---|---|
 | Title | Lean Programming for AI Agents |
-| Subtitle | Machine-checked contracts, specs and proofs for agent systems |
+| Subtitle | Verified Contracts, Specs and Proofs for Agentic Systems |
 | Author | Abdul Kavungal (AK) |
 | Publisher | Award Winning Creations |
 | Edition | 1 (first edition, 2026) |

@@ -26,7 +26,7 @@ identifiers:
 preferred-citation:
   type: book
   title: Lean Programming for AI Agents
-  subtitle: Machine-checked contracts, specs and proofs for agent systems
+  subtitle: Verified Contracts, Specs and Proofs for Agentic Systems
   authors:
     - family-names: Kavungal
       given-names: Abdul
