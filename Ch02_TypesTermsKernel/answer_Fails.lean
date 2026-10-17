@@ -1,0 +1,12 @@
+-- Book listing around line 408 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def answer : Nat := 42
+-- def double (n : Nat) : Nat := n + n
+--
+-- #check answer        -- answer : Nat
+-- #check double        -- double : Nat → Nat
+-- #check double answer -- double answer : Nat
+-- #eval double answer  -- 84
+-- #print double

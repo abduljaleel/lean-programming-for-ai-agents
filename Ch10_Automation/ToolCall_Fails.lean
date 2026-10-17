@@ -1,0 +1,19 @@
+-- Book listing around line 5478 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure ToolCall where
+--   name : String
+--   args : Json
+-- deriving Repr, BEq, Inhabited
+--
+-- inductive ToolResult (α : Type) where
+--   | ok     : α → ToolResult α
+--   | denied : String → ToolResult α
+--   | failed : String → ToolResult α
+-- deriving Repr
+--
+-- def Safe {α : Type} (ok : α → Prop) : ToolResult α → Prop
+--   | .ok v     => ok v
+--   | .denied _ => False
+--   | .failed _ => False

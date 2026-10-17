@@ -1,0 +1,28 @@
+-- Book listing around line 8847 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Json.getObj : Json → List (String × Json)
+--   | .obj kvs => kvs
+--   | _        => []
+--
+-- def Json.lookup (j : Json) (k : String) : Option Json :=
+--   (j.getObj.lookup k)
+--
+-- def decodeToolCall (j : Json) : Option ToolCall := do
+--   let name ← match j.lookup "name" with
+--     | some (.str n) => some n
+--     | _             => none
+--   let args := (j.lookup "args").getD .null
+--   some { name, args }
+--
+-- /-- Total stub, shipped in `Myagent/Spec.lean`.
+--     Never partial: unknown input becomes `.str s`. A production body
+--     can call `Lean.Json.parse` and map into this inductive. -/
+-- def parseJson (s : String) : Json :=
+--   if s == "null" then .null
+--   else if s == "true" then .bool true
+--   else if s == "false" then .bool false
+--   else if s.startsWith "\"" && s.endsWith "\"" && s.length >= 2 then
+--     .str ((s.drop 1).dropEnd 1).copy
+--   else .str s

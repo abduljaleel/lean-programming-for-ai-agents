@@ -1,0 +1,22 @@
+-- Book listing around line 10023 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def drainQuota (quota : Nat) (calls : List ToolCall) :
+--     StateM AgentState (List (ToolResult Json)) := do
+--   let mut acc : List (ToolResult Json) := []
+--   for c in calls do
+--     let r ← callWithQuota quota c
+--     acc := r :: acc
+--     match r with
+--     | .denied _ => break
+--     | _         => pure ()
+--   pure acc.reverse
+--
+-- example (quota : Nat) (calls : List ToolCall) :
+--     ⦃ fun s => ⌜s.counter = 0⌝ ⦄
+--     drainQuota quota calls
+--     ⦃ ⇓ rs s => ⌜s.counter ≤ quota ∧ rs.length ≤ calls.length⌝ ⦄ := by
+--   mvcgen [drainQuota, callWithQuota]
+--   -- Exercise: state the invariant and close it.
+--   -- invariant: s.counter ≤ quota ∧ acc.length ≤ calls.length

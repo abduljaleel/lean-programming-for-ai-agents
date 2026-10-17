@@ -1,0 +1,37 @@
+name = "lean-programming-for-ai-agents"
+version = "1.0.0"
+defaultTargets = ["book", "Myagent", "checker"]
+
+[[lean_lib]]
+name = "book"
+srcDir = "."
+globs = [
+  "Ch01_WhyLean.+",
+  "Ch02_TypesTermsKernel.+",
+  "Ch03_InductiveTypes.+",
+  "Ch04_Typeclasses.+",
+  "Ch05_DoMonads.+",
+  "Ch06_PropTactics.+",
+  "Ch07_LakeModules.+",
+  "Ch08_MetaprogrammingI.+",
+  "Ch09_MetaprogrammingII.+",
+  "Ch10_Automation.+",
+  "Ch11_REPL.+",
+  "Ch12_PythonFFI.+",
+  "Ch13_Provers.+",
+  "Ch14_ProofAgents.+",
+  "Ch15_Autoformalization.+",
+  "Ch16_Contracts.+",
+  "Ch17_SpecifiedLoops.+",
+  "AppA_CheatSheet.+",
+  "AppC_LakefileTemplates.+",
+]
+
+[[lean_lib]]
+name = "Myagent"
+srcDir = "Ch18_WorkedAgent"
+
+[[lean_exe]]
+name = "checker"
+root = "Main"
+srcDir = "Ch18_WorkedAgent"

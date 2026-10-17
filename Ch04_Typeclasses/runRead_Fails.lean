@@ -1,0 +1,12 @@
+-- Book listing around line 1972 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def runRead (path : String) [Sandboxed path] : ToolResult (ToolOutput .readFile) :=
+--   .ok (.readFile "<stub>")
+--
+-- #eval runRead "workspace/Main.lean"
+-- -- ok
+--
+-- -- #eval runRead "/etc/passwd"
+-- -- failed to synthesize Sandboxed "/etc/passwd"

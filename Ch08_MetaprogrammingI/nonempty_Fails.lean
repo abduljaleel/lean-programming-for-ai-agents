@@ -1,0 +1,11 @@
+-- Book listing around line 4311 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- #check (s ↦ s ≠ "")
+-- -- fun s => s ≠ "" : String → Prop
+--
+-- def nonempty : String → Prop := s ↦ s ≠ ""
+--
+-- #eval (n ↦ n + 1) 3
+-- -- 4

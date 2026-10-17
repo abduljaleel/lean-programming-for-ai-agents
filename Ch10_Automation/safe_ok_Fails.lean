@@ -1,0 +1,11 @@
+-- Book listing around line 5637 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- @[grind]
+-- theorem safe_ok {α : Type} (ok : α → Prop) (v : α) :
+--     Safe ok (.ok v) ↔ ok v := Iff.rfl
+--
+-- @[grind]
+-- theorem not_safe_denied {α : Type} (ok : α → Prop) (m : String) :
+--     ¬ Safe ok (.denied m) := id

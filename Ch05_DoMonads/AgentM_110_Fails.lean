@@ -1,0 +1,17 @@
+-- Book listing around line 2230 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- abbrev AgentM := StateT Trace IO
+--
+-- def record (c : ToolCall) (r : ToolResult Json) : AgentM Unit := do
+--   modify (fun t => .step c r t)
+--
+-- def stubToolM (c : ToolCall) : AgentM (ToolResult Json) := do
+--   let r ← stubTool c          -- IO lifted through MonadLiftT
+--   record c r
+--   pure r
+--
+-- def runGoal (goal : String) (c : ToolCall) : AgentM (ToolResult Json) := do
+--   IO.println s!"goal: {goal}" -- also lifted
+--   stubToolM c

@@ -1,0 +1,18 @@
+-- Book listing around line 2250 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def main (args : List String) : IO UInt32 := do
+--   let goalLine ← (← IO.getStdin).getLine
+--   let callLine ← (← IO.getStdin).getLine
+--   match decodeBoth goalLine callLine with
+--   | none =>
+--       IO.eprintln "decode failed"
+--       return 2
+--   | some (goal, c) =>
+--       let (r, t) ← (runGoal goal c).run .empty
+--       IO.println s!"trace length: {t.length}"
+--       match r with
+--       | .ok _     => return 0
+--       | .denied _ => return 1
+--       | .failed _ => return 1

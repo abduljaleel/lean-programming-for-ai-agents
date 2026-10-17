@@ -1,0 +1,14 @@
+-- Book listing around line 1821 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- instance {α : Type} : Coe α (ToolResult α) where
+--   coe := ToolResult.ok
+--
+-- instance {α : Type} : Coe (ToolResult α) (Except String α) where
+--   coe
+--     | .ok v       => .ok v
+--     | .denied r   => .error s!"denied: {r}"
+--     | .failed r   => .error s!"failed: {r}"
+--
+-- def asExcept {α : Type} (r : ToolResult α) : Except String α := r

@@ -1,0 +1,12 @@
+-- Book listing around line 1947 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- class Sandboxed (path : String) : Prop where
+--   ok : path.startsWith "workspace/" = true
+--
+-- instance : Sandboxed "workspace/Main.lean" where
+--   ok := rfl
+--
+-- -- instance : Sandboxed "/etc/passwd" where
+-- --   ok := rfl   -- fails: definitional equality does not hold

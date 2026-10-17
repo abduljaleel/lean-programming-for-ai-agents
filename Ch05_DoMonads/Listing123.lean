@@ -1,0 +1,8 @@
+-- Book listing around line 2433 (Ch05_DoMonads).
+-- A 4.31-era "monad" that will break:
+-- instance : Bind Tiny where
+--   bind := ...
+-- def oops : Tiny Nat := do
+--   let x ← tiny 1
+--   x + 1
+-- error: failed to synthesize Pure Tiny

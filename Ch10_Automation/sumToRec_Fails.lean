@@ -1,0 +1,11 @@
+-- Book listing around line 5953 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def sumToRec : Nat → Nat
+--   | 0     => 0
+--   | n + 1 => sumToRec n + n
+--
+-- theorem sumToRec_eq (n : Nat) :
+--     sumToRec n = n * (n - 1) / 2 := by
+--   induction n <;> grind

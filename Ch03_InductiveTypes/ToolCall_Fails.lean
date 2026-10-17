@@ -1,0 +1,17 @@
+-- Book listing around line 1179 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure ToolCall where
+--   name : String
+--   args : Json
+--   timeoutMs : Nat := 30_000
+-- deriving Repr, BEq, Inhabited
+--
+-- def listFiles : ToolCall :=
+--   { name := "list_dir", args := { raw := "[\"src\"]" }, timeoutMs := 5_000 }
+--
+-- #eval listFiles.name
+-- -- "list_dir"
+--
+-- def longer := { listFiles with timeoutMs := 10_000 }

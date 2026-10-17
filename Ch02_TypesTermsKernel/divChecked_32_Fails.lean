@@ -1,0 +1,13 @@
+-- Book listing around line 818 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def divChecked (n d : Nat) (h : d ≠ 0) : Nat := n / d
+--
+-- def divChecked' (n : Nat) {d : Nat} (h : d ≠ 0) : Nat := n / d
+--
+-- -- `h` is written. The call is honest.
+-- #eval divChecked 10 2 (by decide)
+--
+-- -- `d` is implicit; `h` is still required.
+-- #eval divChecked' 10 (d := 2) (by decide)

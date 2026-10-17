@@ -1,0 +1,13 @@
+-- Book listing around line 1317 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def decodeTrace : JValue → Except String Trace
+--   | .arr [] => return .empty
+--   | .arr (hd :: tl) => do
+--       let call ← decodeToolCall (hd.get? "call" |>.getD .null)
+--       let result ← decodeToolResult (hd.get? "result" |>.getD .null)
+--       let rest ← decodeTrace (.arr tl)
+--       return .step call result rest
+--   | _ =>
+--       .error "trace must be an array"

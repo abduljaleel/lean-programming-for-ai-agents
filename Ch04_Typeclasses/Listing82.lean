@@ -1,0 +1,6 @@
+-- Book listing around line 1704 (Ch04_Typeclasses).
+-- Sketch of the shape; the real names live in Std.Do.
+-- class WP (m : Type → Type) where
+--   wp : m α → (α → Prop) → Prop
+-- class WPSound (m : Type → Type) [WP m] where
+--   sound : ...

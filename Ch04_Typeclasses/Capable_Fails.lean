@@ -1,0 +1,11 @@
+-- Book listing around line 1516 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- class Capable (α : Type) where
+--   name : String
+--   allowed : α → Bool
+--
+-- instance : Capable ToolCall where
+--   name := "tool"
+--   allowed c := !c.name.isEmpty && c.name ≠ "shell"

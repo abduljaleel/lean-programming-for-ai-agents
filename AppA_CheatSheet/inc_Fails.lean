@@ -1,0 +1,15 @@
+-- Book listing around line 11032 (AppA_CheatSheet).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- import Std.Tactic.Do
+-- open Std.Do
+--
+-- def inc (n : Nat) : Id Nat := do
+--   let a ← pure (n + 1)
+--   let b ← pure (a + 2)
+--   pure (b + 3)
+--
+-- example (n : Nat) : ⦃⌜True⌝⦄ inc n ⦃⇓ r => ⌜r = n + 6⌝⦄ := by
+--   mvcgen [inc]
+--   grind

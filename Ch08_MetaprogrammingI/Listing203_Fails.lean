@@ -1,0 +1,17 @@
+-- Book listing around line 4349 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- declare_syntax_cat resultKind
+-- syntax "ok"     : resultKind
+-- syntax "denied" : resultKind
+-- syntax "failed" : resultKind
+-- syntax "result!" resultKind term : term
+--
+-- macro_rules
+--   | `(result! ok $v:term)     => `(ToolResult.ok $v)
+--   | `(result! denied $m:term) => `(ToolResult.denied $m)
+--   | `(result! failed $m:term) => `(ToolResult.failed $m)
+--
+-- #check result! ok "hi"
+-- -- ToolResult.ok "hi" : ToolResult String

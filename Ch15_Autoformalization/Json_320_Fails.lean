@@ -1,0 +1,15 @@
+-- Book listing around line 8419 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Json.getObj : Json → List (String × Json)
+--   | .obj kvs => kvs
+--   | _        => []
+--
+-- def Json.lookup (j : Json) (k : String) : Option Json :=
+--   j.getObj.lookup k
+--
+-- def underWorkspace (path : String) : Bool :=
+--   path.startsWith "/workspace/" && !(path.contains "..")
+--
+-- def nonempty : String → Prop := fun s => s ≠ ""

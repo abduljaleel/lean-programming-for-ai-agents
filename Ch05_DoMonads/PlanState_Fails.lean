@@ -1,0 +1,22 @@
+-- Book listing around line 2767 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure PlanState where
+--   fuel : Nat
+--   out  : List ToolCall
+-- deriving Repr
+--
+-- def emit (c : ToolCall) : StateM PlanState Unit := do
+--   modify fun s => { s with out := c :: s.out }
+--
+-- def planEcho (goal : String) : StateM PlanState Unit := do
+--   let s ← get
+--   if s.fuel = 0 then
+--     emit { name := "finish", args := { raw := "fuel" } }
+--   else
+--     emit { name := "echo", args := { raw := goal } }
+--     emit { name := "finish", args := { raw := "done" } }
+--
+-- def planned (goal : String) : List ToolCall :=
+--   ((planEcho goal).run { fuel := 4, out := [] }).2.out.reverse

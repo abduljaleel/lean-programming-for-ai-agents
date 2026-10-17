@@ -1,0 +1,13 @@
+-- Book listing around line 2344 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Breaks on 4.32 if the body is a ToolResult and the block expects Except:
+-- -- try
+-- --   stubTool c
+-- -- catch _ =>
+-- --   .failed "x"
+-- -- Write this instead:
+-- def stepExplicit (c : ToolCall) : ExceptT String IO (ToolResult Json) := do
+--   let r ← stubTool c
+--   pure r

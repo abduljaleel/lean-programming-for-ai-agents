@@ -1,0 +1,32 @@
+-- Book listing around line 7172 (Ch12_PythonFFI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure Decoded where
+--   tag : UInt8
+--   payload : String
+--
+-- def decode (s : String) : Except String Decoded :=
+--   -- pedagogical stand-in for a real JSON decoder
+--   if s.startsWith "ok:" then
+--     .ok { tag := 0, payload := s.drop 3 }
+--   else if s.startsWith "denied:" then
+--     .ok { tag := 1, payload := s.drop 7 }
+--   else if s.startsWith "failed:" then
+--     .ok { tag := 2, payload := s.drop 7 }
+--   else
+--     .error "bad trace"
+--
+-- def main (args : List String) : IO UInt32 := do
+--   match args with
+--   | [s] =>
+--     match decode s with
+--     | .ok d =>
+--       IO.println s!"tag={d.tag}"
+--       return 0
+--     | .error e =>
+--       IO.eprintln e
+--       return 1
+--   | _ =>
+--     IO.eprintln "usage: myagent <trace>"
+--     return 2

@@ -1,0 +1,23 @@
+-- Book listing around line 9505 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Workflow.nodeIds (w : Workflow) : List NodeId :=
+--   w.nodes.map (·.id)
+--
+-- def Workflow.hasNode (w : Workflow) (id : NodeId) : Bool :=
+--   w.nodeIds.contains id
+--
+-- def Workflow.writtenBefore (w : Workflow) : List String :=
+--   -- pedagogical: union of all writes. A real checker walks reachability.
+--   w.nodes.flatMap (·.writes)
+--
+-- def structuralOk (w : Workflow) : Bool :=
+--   w.hasNode w.start && w.hasNode w.finish &&
+--     w.edges.all (fun e => w.hasNode e.src && w.hasNode e.dst) &&
+--     w.nodes.all (fun n =>
+--       n.reads.all (fun r => w.writtenBefore.contains r || n.writes.contains r)) &&
+--     w.nodes.all (fun n =>
+--       match n.tool? with
+--       | none => n.kind != .step
+--       | some _ => n.kind == .step)

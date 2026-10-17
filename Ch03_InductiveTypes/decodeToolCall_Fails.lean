@@ -1,0 +1,27 @@
+-- Book listing around line 1285 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def decodeToolCall (j : JValue) : Except String ToolCall := do
+--   let name ← (j.get? "name" >>= JValue.asStr?).toExcept "missing name"
+--   let args :=
+--     match j.get? "args" with
+--     | some v => { raw := toString v }
+--     | none   => { raw := "null" }
+--   return { name, args }
+--
+-- def decodeToolResult (j : JValue) : Except String (ToolResult JValue) := do
+--   let tag ← (j.get? "tag" >>= JValue.asStr?).toExcept "missing tag"
+--   match tag with
+--   | "ok" =>
+--       match j.get? "value" with
+--       | some v => return .ok v
+--       | none   => .error "ok without value"
+--   | "denied" =>
+--       let reason ← (j.get? "reason" >>= JValue.asStr?).toExcept "missing reason"
+--       return .denied reason
+--   | "failed" =>
+--       let reason ← (j.get? "reason" >>= JValue.asStr?).toExcept "missing reason"
+--       return .failed reason
+--   | other =>
+--       .error s!"unknown tag: {other}"

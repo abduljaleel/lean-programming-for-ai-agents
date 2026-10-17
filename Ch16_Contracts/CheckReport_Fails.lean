@@ -1,0 +1,30 @@
+-- Book listing around line 9255 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure CheckReport where
+--   hasError  : Bool
+--   hasSorry  : Bool
+--   axioms    : List String
+--   statement : String   -- pretty-printed type, for the hash
+--
+-- /-- Total stub, shipped in `Myagent/Spec.lean`.
+--     Polynomial rolling hash. -/
+-- def hash (s : String) : UInt64 :=
+--   s.foldl (fun acc c => acc * 31 + c.val.toUInt64) 0
+--
+-- def expectedAxioms : List String :=
+--   ["propext", "Classical.choice", "Quot.sound",
+--    "tableAttest", "llmExecAttest"]
+--
+-- def decideVerdict (r : CheckReport) (expectedHash : UInt64) : Verdict :=
+--   if r.hasError then
+--     .reject "kernel error"
+--   else if r.hasSorry then
+--     .reject "sorry"
+--   else if r.axioms.any (fun a => a ∉ expectedAxioms) then
+--     .reject s!"unexpected axioms {r.axioms}"
+--   else if _root_.hash r.statement != expectedHash then
+--     .abstain "statement hash mismatch; audit required"
+--   else
+--     .accept

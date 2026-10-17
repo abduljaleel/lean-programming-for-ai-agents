@@ -1,0 +1,15 @@
+-- Book listing around line 1555 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- class NamedTool (id : ToolId) where
+--   display : String
+--
+-- instance : NamedTool .readFile where
+--   display := "read_file"
+--
+-- instance : NamedTool .writeFile where
+--   display := "write_file"
+--
+-- def showTool (id : ToolId) [NamedTool id] : String :=
+--   NamedTool.display id

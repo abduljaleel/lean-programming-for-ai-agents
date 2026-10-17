@@ -1,0 +1,27 @@
+-- Book listing around line 2605 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def drain (start : Nat) : IO Nat := do
+--   let mut n := start
+--   let mut steps := 0
+--   while n > 0 do
+--     n := n - 1
+--     steps := steps + 1
+--   return steps
+--
+-- def drainLet (xs : List ToolCall) : IO Nat := do
+--   let mut rest := xs
+--   let mut n := 0
+--   while let c :: cs := rest do
+--     rest := cs
+--     if c.name ≠ "finish" then
+--       n := n + 1
+--   return n
+--
+-- def drainHyp (limit : Nat) : IO Nat := do
+--   let mut n := 0
+--   while h : n < limit do
+--     -- `h : n < limit` is in scope in the body
+--     n := n + 1
+--   return n

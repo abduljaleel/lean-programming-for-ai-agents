@@ -1,0 +1,24 @@
+-- Book listing around line 5136 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "check_contract_ok " c:term " on " call:term " giving " v:term : tactic => do
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     let cE    ← elabTerm c none
+--     let callE ← elabTerm call (some (mkConst ``ToolCall))
+--     let cTy   ← inferType cE
+--     let some (_, α) := cTy.app2? ``Contract
+--       | throwTacticEx `check_contract_ok mvarId m!"expected a Contract"
+--     let vE    ← elabTermEnsuringType v α
+--     synthesizeSyntheticMVarsNoPostponing
+--     let preT  ← mkAppM ``Contract.pre #[cE, callE]
+--     let rE    ← mkAppM ``ToolResult.ok #[vE]
+--     let postT ← mkAppM ``Contract.post #[cE, callE, rE]
+--     let pPre  ← mkFreshExprMVar (some preT)  .syntheticOpaque `pre
+--     let pPost ← mkFreshExprMVar (some postT) .syntheticOpaque `post
+--     let g1 ← mvarId.assert `preH  preT  pPre
+--     let (_, g2) ← g1.intro1P
+--     let g3 ← g2.assert `postH postT pPost
+--     let (_, g4) ← g3.intro1P
+--     replaceMainGoal [pPre.mvarId!, pPost.mvarId!, g4]

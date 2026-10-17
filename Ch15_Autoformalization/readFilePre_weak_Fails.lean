@@ -1,0 +1,16 @@
+-- Book listing around line 8479 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def readFilePre_weak (c : ToolCall) : Prop :=
+--   c.name = "read_file"
+--
+-- def readFilePost_weak (c : ToolCall) : ToolResult String → Prop
+--   | .ok _     => True
+--   | .denied _ => True
+--   | .failed _ => True
+--
+-- def readFileContract_weak : Contract String where
+--   pre  := readFilePre_weak
+--   run  := fun c h => pure (.ok "")
+--   post := readFilePost_weak

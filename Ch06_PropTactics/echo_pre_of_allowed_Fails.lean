@@ -1,0 +1,12 @@
+-- Book listing around line 3381 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Chapter 4's Capable: a capability is an instance, not a flag.
+-- -- Here the Prop-level cousin of `Capable.allowed` is `named`.
+--
+-- theorem echo_pre_of_allowed (c : ToolCall) [Capable ToolCall]
+--     (h : Capable.allowed c = true)
+--     (heq : Capable.allowed c = true → c.name = "echo") :
+--     named "echo" c :=
+--   heq h

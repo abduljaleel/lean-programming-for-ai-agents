@@ -1,0 +1,18 @@
+-- Book listing around line 3429 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem safe_results_all_ok_term (ok : String → Prop) :
+--     (t : Trace) → t.safe ok →
+--       ∀ r ∈ t.results, r.isOk = true :=
+--   fun t =>
+--     match t with
+--     | .empty =>
+--         fun _hs r hin => False.elim (by cases hin)
+--     | .step _ res rest =>
+--         fun hs r hin =>
+--           match hin with
+--           | .head _ =>
+--               safe_implies_isOk ok res hs.left
+--           | .tail _ hTail =>
+--               safe_results_all_ok_term ok rest hs.right r hTail

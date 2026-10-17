@@ -1,0 +1,17 @@
+-- Book listing around line 5855 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def increaseBy (n k : Nat) : Id Nat :=
+--   pure (n + k)
+--
+-- def inc15 (n : Nat) : Id Nat := do
+--   let a ← increaseBy n 1
+--   let b ← increaseBy a 2
+--   let c ← increaseBy b 3
+--   let d ← increaseBy c 4
+--   increaseBy d 5
+--
+-- example (n : Nat) : ⦃⌜True⌝⦄ inc15 n ⦃⇓ r => ⌜r = n + 15⌝⦄ := by
+--   mvcgen [inc15, increaseBy]
+--   grind

@@ -1,0 +1,13 @@
+-- Book listing around line 5291 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "show_pre " c:term " on " call:term : tactic => do
+--   withMainContext do
+--     let cE    ← elabTerm c none
+--     let callE ← elabTermEnsuringType call (mkConst ``ToolCall)
+--     let preT  ← mkAppM ``Contract.pre #[cE, callE]
+--     let preR  ← withReducible (whnf preT)
+--     logInfo m!"pre (reducible): {preR}"
+--     let preD  ← whnf preT
+--     logInfo m!"pre (default): {preD}"

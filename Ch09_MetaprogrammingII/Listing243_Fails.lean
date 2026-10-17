@@ -1,0 +1,28 @@
+-- Book listing around line 5091 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "check_contract " c:term " on " call:term : tactic => do
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     let cE ← elabTerm c none
+--     let callE ← elabTerm call (some (mkConst ``ToolCall))
+--     synthesizeSyntheticMVarsNoPostponing
+--     let cTy ← inferType cE
+--     -- Expect `Contract α` for some α. Fail now if not.
+--     let some (_, α) := cTy.app2? ``Contract
+--       | throwTacticEx `check_contract mvarId
+--           m!"expected a Contract, got {cTy}"
+--     let preT  ← mkAppM ``Contract.pre  #[cE, callE]
+--     let resTy ← mkAppM ``ToolResult #[α]
+--     let r ← mkFreshExprMVar (some resTy) (userName := `r)
+--     let postT ← mkAppM ``Contract.post #[cE, callE, r]
+--     -- Replace ⊢ G with ⊢ pre → post → G, then intro both,
+--     -- leaving pre and post as goals via suppose-style asserts.
+--     let pPre  ← mkFreshExprMVar (some preT)  .syntheticOpaque `pre
+--     let pPost ← mkFreshExprMVar (some postT) .syntheticOpaque `post
+--     let g1 ← mvarId.assert `preH  preT  pPre
+--     let (_, g2) ← g1.intro1P
+--     let g3 ← g2.assert `postH postT pPost
+--     let (_, g4) ← g3.intro1P
+--     replaceMainGoal [pPre.mvarId!, pPost.mvarId!, g4]

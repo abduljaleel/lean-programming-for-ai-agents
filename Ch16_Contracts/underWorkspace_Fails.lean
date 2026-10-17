@@ -1,0 +1,33 @@
+-- Book listing around line 8903 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def underWorkspace (path : String) : Bool :=
+--   path.startsWith "/workspace/" && !(path.contains "..")
+--
+-- def readFilePre (c : ToolCall) : Prop :=
+--   c.name = "read_file" ∧
+--     ∃ path, c.args.lookup "path" = some (.str path) ∧ underWorkspace path = true
+--
+-- def readFilePost (c : ToolCall) : ToolResult String → Prop
+--   | .ok s      => s ≠ ""
+--   | .denied m  => m ≠ ""
+--   | .failed _  => False
+--
+-- /-- Computational cousin of `readFilePre`. The exe checker runs this. -/
+-- def checkReadFilePre (c : ToolCall) : Bool :=
+--   c.name == "read_file" &&
+--     match c.args.lookup "path" with
+--     | some (.str path) => underWorkspace path
+--     | _                => false
+--
+-- theorem checkReadFilePre_sound (c : ToolCall)
+--     (h : checkReadFilePre c = true) : readFilePre c := by
+--   unfold checkReadFilePre at h
+--   cases hb : (c.name == "read_file") <;> simp [hb] at h
+--   · contradiction
+--   · constructor
+--     · exact beq_iff_eq.mp hb
+--     · split at h
+--       · next path hp => exact ⟨path, hp, h⟩
+--       · contradiction

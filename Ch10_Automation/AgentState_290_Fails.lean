@@ -1,0 +1,21 @@
+-- Book listing around line 5887 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure AgentState where
+--   counter : Nat
+--   log     : List String
+-- deriving Repr
+--
+-- def mkFresh : StateM AgentState Nat := do
+--   let s ← get
+--   set { s with counter := s.counter + 1 }
+--   pure s.counter
+--
+-- @[spec]
+-- theorem mkFresh_spec (c : Nat) :
+--     ⦃ fun s => ⌜s.counter = c⌝ ⦄
+--     mkFresh
+--     ⦃ ⇓ r s => ⌜r = c ∧ c < s.counter⌝ ⦄ := by
+--   mvcgen [mkFresh]
+--   grind

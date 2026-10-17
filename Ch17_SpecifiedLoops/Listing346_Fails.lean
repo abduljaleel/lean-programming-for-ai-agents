@@ -1,0 +1,23 @@
+-- Book listing around line 9585 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- instance : Capable "list_dir" where
+--   contract := listDirContract
+--   checkPre := checkListDirPre
+--   checkPre_correct := checkListDirPre_sound
+--
+-- instance : Capable "run_tests" where
+--   contract := runTestsContract
+--   checkPre := checkRunTestsPre
+--   checkPre_correct := checkRunTestsPre_sound
+--
+-- instance : Capable "edit_file" where
+--   contract := editFileContract
+--   checkPre := checkEditFilePre
+--   checkPre_correct := checkEditFilePre_sound
+--
+-- instance : Capable "open_pr" where
+--   contract := openPrContract
+--   checkPre := checkOpenPrPre
+--   checkPre_correct := checkOpenPrPre_sound

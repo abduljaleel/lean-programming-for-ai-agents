@@ -1,0 +1,28 @@
+-- Book listing around line 8953 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- instance : Capable "read_file" where
+--   contract := {
+--     pre  := readFilePre
+--     run  := fun c h => do
+--       -- `h` is the proof. The implementation may use it or ignore it.
+--       match c.args.lookup "path" with
+--       | some (.str path) =>
+--           try
+--             let s ← IO.FS.readFile path
+--             pure (.ok (.str s))
+--           catch e =>
+--             pure (.failed (toString e))
+--       | _ =>
+--           pure (.denied "missing path")
+--     post := fun c r =>
+--       match r with
+--       | .ok s     => match s with | .str t => t ≠ "" | _ => False
+--       | .denied m => m ≠ ""
+--       | .failed _ => False
+--   }
+--   checkPre := checkReadFilePre
+--   checkPre_correct := by
+--     intro c hn ht
+--     exact checkReadFilePre_sound c ht

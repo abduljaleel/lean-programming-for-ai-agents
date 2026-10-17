@@ -1,0 +1,13 @@
+-- Book listing around line 1760 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def runTool (id : ToolId) [Capable id] (input : ToolInput id) :
+--     ToolResult (ToolOutput id) :=
+--   Capable.run input
+--
+-- #eval runTool .readFile (.readFile "workspace/Main.lean")
+-- -- ToolResult.ok ...
+--
+-- -- #eval runTool .listDir (.listDir "workspace/")
+-- -- failed to synthesize Capable ToolId.listDir

@@ -1,0 +1,20 @@
+-- Book listing around line 1911 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- class Log (m : Type → Type) where
+--   log : String → m Unit
+--
+-- instance : Log IO where
+--   log := IO.println
+--
+-- instance [Log m] : Log (StateT σ m) where
+--   log s := monadLift (Log.log s : m Unit)
+--
+-- instance [Log m] : Log (ExceptT ε m) where
+--   log s := monadLift (Log.log s : m Unit)
+--
+-- -- Two paths to Log AgentEM:
+-- --   IO → StateT Trace IO → ExceptT String (StateT Trace IO)
+-- --   IO → (if you also wrote Log (ExceptT ε IO)) ...
+-- #synth Log AgentEM

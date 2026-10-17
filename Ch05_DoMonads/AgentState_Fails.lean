@@ -1,0 +1,11 @@
+-- Book listing around line 2857 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure AgentState where
+--   trace : Trace
+--   quota : Nat
+--   logs  : List String
+-- deriving Repr
+--
+-- abbrev FlatM := StateT AgentState IO

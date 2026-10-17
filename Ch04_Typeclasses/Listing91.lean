@@ -1,0 +1,4 @@
+-- Book listing around line 1860 (Ch04_Typeclasses).
+-- The library's Coe, simplified:
+-- class Coe (α : Type) (β : outParam Type) where
+--   coe : α → β

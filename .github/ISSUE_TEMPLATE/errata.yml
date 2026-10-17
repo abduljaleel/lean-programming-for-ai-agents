@@ -1,0 +1,40 @@
+name: Errata
+description: Report a mistake in the book or in these companion listings
+title: "[Errata] "
+labels: ["errata"]
+body:
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      description: Which printing you are looking at
+      options:
+        - First edition, 2026
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Chapter, page number, or path such as Ch02_TypesTermsKernel/Certificate.lean
+      placeholder: Chapter 2, Certificate.lean
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Quote the current text or listing, then the correction.
+    validations:
+      required: true
+  - type: input
+    id: lean
+    attributes:
+      label: Lean version
+      description: Output of lean --version, if this is a compile problem
+      placeholder: Lean (version 4.35.0, ...)
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Optional context, surrounding sentences, or a screenshot description

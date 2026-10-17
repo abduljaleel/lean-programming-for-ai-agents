@@ -1,0 +1,46 @@
+-- Book listing around line 2681 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- abbrev LoopM := ReaderT Policy (ExceptT String (StateT Trace IO))
+--
+-- def withLoggingL (act : LoopM α) : LoopM α := do
+--   IO.println "log!"
+--   act
+--
+-- def runTool (c : ToolCall) : LoopM (ToolResult Json) := do
+--   let p ← read
+--   if c.name == "shell" && !p.allowShell then
+--     record c (.denied "policy")
+--     throw "policy"
+--   let r ← stubTool c
+--   record c r
+--   match r with
+--   | .failed m => throw m
+--   | _         => pure r
+--
+-- partial def agentLoop : LoopM UInt32 := do
+--   let line ← (← IO.getStdin).getLine
+--   match decodeCall line with
+--   | none =>
+--       IO.eprintln "decode failed"
+--       return 2
+--   | some c =>
+--       if c.name == "finish" then
+--         return 0
+--       withLoggingL (do←
+--         let r ← runTool c
+--         IO.println (repr r)
+--         if let .denied _ := r then
+--           return 1)
+--       agentLoop
+--
+-- def main (_args : List String) : IO UInt32 := do
+--   let p : Policy := { allowShell := false, quota := 8 }
+--   let (r, t) ← (agentLoop.run p |>.run .empty)
+--   IO.println s!"steps: {t.length}"
+--   match r with
+--   | .ok code    => return code
+--   | .error msg  =>
+--       IO.eprintln msg
+--       return 1

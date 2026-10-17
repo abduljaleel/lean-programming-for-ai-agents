@@ -1,0 +1,13 @@
+-- Book listing around line 2539 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def brkForward : IO Nat := do
+--   let mut total := 0
+--   for i in [1, 2, 3, 4, 5] do
+--     total := total + (← withLogging (do←
+--       if i > 3 then break
+--       pure i))
+--   return total
+-- -- prints "log!" four times (1, 2, 3, and the breaking 4)
+-- -- returns 6

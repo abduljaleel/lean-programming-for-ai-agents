@@ -1,0 +1,20 @@
+-- Book listing around line 2730 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def agentLoopN : Nat → LoopM UInt32
+--   | 0 => do
+--       IO.eprintln "fuel"
+--       return 1
+--   | n + 1 => do
+--       let line ← (← IO.getStdin).getLine
+--       match decodeCall line with
+--       | none =>
+--           IO.eprintln "decode failed"
+--           return 2
+--       | some c =>
+--           if c.name == "finish" then
+--             return 0
+--           withLoggingL (do←
+--             let _ ← runTool c)
+--           agentLoopN n

@@ -1,0 +1,11 @@
+-- Book listing around line 8943 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- /-- Presence of an instance is permission. Absence is not a `false`;
+--     it is a failure to synthesise. -/
+-- class Capable (name : String) where
+--   contract : Contract Json
+--   checkPre : ToolCall → Bool
+--   checkPre_correct :
+--     ∀ c, c.name = name → checkPre c = true → contract.pre c

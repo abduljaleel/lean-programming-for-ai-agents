@@ -1,0 +1,55 @@
+-- Book listing around line 9658 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- /-- `verify_fix` post. True only when the test tool returned ok
+--     *and* the log does not still contain a failure marker.
+--     This is the predicate Layer 3 will falsify. -/
+-- def verifyFixPost (r : ToolResult Json) (s' : Store) : Prop :=
+--   match r with
+--   | .ok _ =>
+--       s'.get "verifyOk" = some (.bool true) ∧
+--         match s'.get "testLog" with
+--         | some (.str log) => log.contains "FAILED" = false
+--         | _               => False
+--   | .denied _ => False
+--   | .failed _ => False
+--
+-- structure NodeSpec where
+--   pre  : Store → Prop
+--   post : Store → ToolResult Json → Store → Prop
+--
+-- def nodeSpec (n : Node) : NodeSpec :=
+--   match n.id.name with
+--   | "explore" =>
+--       { pre  := fun _ => True
+--         post := fun _ r s' =>
+--           match r with
+--           | .ok _ => isNonEmptyString (s'.get "bugReport" |>.getD .null) = true
+--           | _     => False }
+--   | "reproduce" =>
+--       { pre  := fun s => isNonEmptyString (s.get "bugReport" |>.getD .null) = true
+--         post := fun _ r s' =>
+--           match r with
+--           | .ok _ => isNonEmptyString (s'.get "failingTest" |>.getD .null) = true
+--           | _     => False }
+--   | "fix" =>
+--       { pre  := fun s =>
+--           isNonEmptyString (s.get "failingTest" |>.getD .null) = true
+--         post := fun _ r s' =>
+--           match r with
+--           | .ok _ => isNonEmptyString (s'.get "diff" |>.getD .null) = true
+--           | _     => False }
+--   | "verify" =>
+--       { pre  := fun s => isNonEmptyString (s.get "diff" |>.getD .null) = true
+--         post := fun _ r s' => verifyFixPost r s' }
+--   | "patch" =>
+--       { pre  := fun s =>
+--           s.get "verifyOk" = some (.bool true) ∧
+--             isNonEmptyString (s.get "diff" |>.getD .null) = true
+--         post := fun _ r s' =>
+--           match r with
+--           | .ok v => isValidURL v = true
+--           | _     => False }
+--   | _ =>
+--       { pre := fun _ => False, post := fun _ _ _ => False }

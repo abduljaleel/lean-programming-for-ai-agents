@@ -1,0 +1,28 @@
+-- Book listing around line 1731 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- class Capable (id : ToolId) where
+--   run : ToolInput id → ToolResult (ToolOutput id)
+--
+-- instance : Capable .readFile where
+--   run
+--     | .readFile path =>
+--         if path.startsWith "workspace/" then
+--           .ok (.readFile "<stub>")
+--         else
+--           .denied "sandbox"
+--
+-- instance : Capable .writeFile where
+--   run
+--     | .writeFile path _ =>
+--         if path.startsWith "workspace/" then
+--           .ok .writeFile
+--         else
+--           .denied "sandbox"
+--
+-- instance : Capable .finish where
+--   run
+--     | .finish _ => .ok .finish
+--
+-- -- No instance for `.listDir`. On purpose.

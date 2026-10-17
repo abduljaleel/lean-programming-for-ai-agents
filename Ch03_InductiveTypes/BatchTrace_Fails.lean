@@ -1,0 +1,12 @@
+-- Book listing around line 1477 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive BatchTrace where
+--   | empty
+--   | step (calls : List (ToolCall × ToolResult Json)) (rest : BatchTrace)
+-- deriving Repr
+--
+-- def BatchTrace.length : BatchTrace → Nat
+--   | .empty => 0
+--   | .step cs t => cs.length + t.length

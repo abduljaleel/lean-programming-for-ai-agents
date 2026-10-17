@@ -1,0 +1,11 @@
+-- Book listing around line 1667 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- set_option synthInstance.maxSize 32 in
+-- #synth Monad (StateT Nat IO)
+-- -- still fine
+--
+-- set_option synthInstance.maxSize 8 in
+-- #synth Monad (StateT Nat (ExceptT String IO))
+-- -- may start to fail, depending on the path

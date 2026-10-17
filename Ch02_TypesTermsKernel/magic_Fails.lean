@@ -1,0 +1,11 @@
+-- Book listing around line 868 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- axiom magic : 0 = 1
+--
+-- theorem wrecked : RefundSafe sampleCharge { sampleRefund with amount := 999 } := by
+--   have : sampleRefund.amount ≤ sampleCharge.amount := by
+--     simp [sampleRefund, sampleCharge]; omega
+--   -- `magic` lets you prove anything, including a too-large refund
+--   cases magic

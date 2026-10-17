@@ -1,0 +1,25 @@
+-- Book listing around line 2360 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure Policy where
+--   allowShell : Bool
+--   quota      : Nat
+-- deriving Repr
+--
+-- abbrev AgentRM := ReaderT Policy AgentM
+--
+-- def allowedByPolicy (c : ToolCall) : AgentRM Bool := do
+--   let p ← read
+--   if c.name == "shell" then
+--     pure p.allowShell
+--   else
+--     pure true
+--
+-- def stubUnderPolicy (c : ToolCall) : AgentRM (ToolResult Json) := do
+--   if !(← allowedByPolicy c) then
+--     let r := ToolResult.denied "policy"
+--     record c r
+--     pure r
+--   else
+--     stubToolM c

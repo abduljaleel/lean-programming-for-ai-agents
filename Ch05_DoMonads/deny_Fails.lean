@@ -1,0 +1,17 @@
+-- Book listing around line 2303 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def deny (c : ToolCall) (reason : String) : AgentEM Unit := do
+--   record c (.denied reason)   -- AgentM lifted into AgentEM
+--   throw reason
+--
+-- def gatedStub (c : ToolCall) [Capable ToolCall] : AgentEM (ToolResult Json) := do
+--   if !(Capable.allowed c) then
+--     deny c s!"denied by {Capable.name ToolCall}"
+--     -- unreachable; throw does not return. 4.32 warns, does not error.
+--   let r ← stubTool c
+--   record c r
+--   match r with
+--   | .failed m => throw m
+--   | _         => pure r

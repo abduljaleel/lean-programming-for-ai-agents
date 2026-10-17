@@ -1,0 +1,13 @@
+-- Book listing around line 4414 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- syntax "namedContract " ident " " str " : " term " then " term : command
+--
+-- macro_rules
+--   | `(command| namedContract $n:ident $nm:str : $α:term then $ok:term) =>
+--     `(command|
+--         def $n : Contract $α where
+--           pre  := fun c => c.name = $nm
+--           run  := fun c _h => pure (ToolResult.ok (c.args.raw))
+--           post := fun _c r => Safe $ok r)

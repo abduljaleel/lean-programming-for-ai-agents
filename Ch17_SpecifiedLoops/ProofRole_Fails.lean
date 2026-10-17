@@ -1,0 +1,33 @@
+-- Book listing around line 9901 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive ProofRole where
+--   | planner
+--   | builder
+--   | verifier
+-- deriving Repr, BEq
+--
+-- structure ProofNode where
+--   id   : NodeId
+--   role : ProofRole
+--   goal : String          -- pretty-printed type, the statement
+--   text : Option String   -- Lean the builder proposed
+-- deriving Repr
+--
+-- def lampWorkflow : Workflow where
+--   nodes := [
+--     { id := nid "plan",  kind := .task, reads := ["goal"],
+--       writes := ["sketch"], tool? := none },
+--     { id := nid "build", kind := .step, reads := ["sketch"],
+--       writes := ["leanText"], tool? := some "emit_lean" },
+--     { id := nid "verify", kind := .step, reads := ["leanText"],
+--       writes := ["verdict"], tool? := some "kernel_check" }
+--   ]
+--   edges := [
+--     ⟨nid "plan", nid "build"⟩,
+--     ⟨nid "build", nid "verify"⟩,
+--     ⟨nid "verify", nid "build"⟩   -- repair
+--   ]
+--   start := nid "plan"
+--   finish := nid "verify"

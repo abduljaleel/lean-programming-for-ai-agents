@@ -1,0 +1,21 @@
+-- Book listing around line 5335 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def myAssumption (mvarId : MVarId) : MetaM Bool := do
+--   mvarId.checkNotAssigned `myAssumption
+--   mvarId.withContext do
+--     let target ← mvarId.getType
+--     for ldecl in ← getLCtx do
+--       if ldecl.isImplementationDetail then
+--         continue
+--       if ← isDefEq ldecl.type target then
+--         mvarId.assign ldecl.toExpr
+--         return true
+--     return false
+--
+-- elab "my_assumption" : tactic => do
+--   let g ← getMainGoal
+--   unless ← myAssumption g do
+--     throwTacticEx `my_assumption g m!"no matching hypothesis"
+--   replaceMainGoal []

@@ -1,0 +1,16 @@
+-- Book listing around line 6115 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def echoRun (c : ToolCall) : Id (ToolResult String) := do
+--   if c.name = "echo" && c.args.raw ≠ "" then
+--     pure (.ok c.args.raw)
+--   else
+--     pure (.denied "pre")
+--
+-- example (c : ToolCall) (h : echoPre c) :
+--     ⦃⌜True⌝⦄ echoRun c ⦃⇓ r => ⌜echoPost c r⌝⦄ := by
+--   mvcgen [echoRun]
+--   -- if-split; h kills the denied branch after unfolding echoPre
+--   simp [echoPre, echoPost] at *
+--   grind

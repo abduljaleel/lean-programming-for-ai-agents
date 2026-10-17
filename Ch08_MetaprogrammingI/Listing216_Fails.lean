@@ -1,0 +1,11 @@
+-- Book listing around line 4553 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- syntax "#assertPre " term : command
+--
+-- elab "#assertPre " t:term : command => do
+--   liftTermElabM do
+--     let _ ← elabTermEnsuringType t (← `(ToolCall → Prop) >>= elabType)
+--     synthesizeSyntheticMVarsNoPostponing
+--   logInfo "pre ok"

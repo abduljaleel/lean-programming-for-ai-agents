@@ -1,0 +1,5 @@
+-- Book listing around line 5808 (Ch10_Automation).
+-- Worse:
+-- ⊢ Safe (fun s => s ≠ "") (ToolResult.ok (String.append "a" "b"))
+-- after simp [String.append]: a mess of List operations, if someone registered them
+-- Better: simp only [Safe]

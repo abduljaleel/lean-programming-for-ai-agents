@@ -1,0 +1,58 @@
+-- Quoted as comments: this listing belongs to a named Myagent package
+-- layout from the chapter, not the Chapter 18 library in this repo.
+
+-- -- Book listing around line 4162 (Ch07_LakeModules).
+--
+-- -- Preamble: earlier listings from this chapter this file needs.
+-- -- Not part of the printed listing.
+--
+-- module
+--
+-- public import Myagent.Spec
+-- import Myagent.Tools
+--
+-- -- Myagent/Spec.lean
+-- module
+--
+-- public structure Json where
+--   raw : String
+--
+-- public structure ToolCall where
+--   name : String
+--   args : Json
+--
+-- public def named (n : String) : ToolCall → Prop :=
+--   fun c => c.name = n
+--
+-- -- Myagent/SpecLemmas.lean
+-- module
+--
+-- public import Myagent.Spec
+-- import all Myagent.Spec
+--
+-- public theorem named_echo_iff (c : ToolCall) :
+--     named "echo" c ↔ c.name = "echo" := Iff.rfl
+--
+-- module
+--
+-- public meta import Lean
+--
+-- meta def revArrays : ... := ...
+--
+-- macro "rev!" x:term : term => ...
+--
+-- public import Myagent.Spec -- shake: keep
+--
+-- -- Printed listing.
+--
+-- module
+--
+-- public section
+--
+-- def ToolResult.isOk {α : Type} : ToolResult α → Bool
+--   | .ok _ => true
+--   | _     => false
+--
+-- def main (args : List String) : IO UInt32 := do
+--   IO.println (toString args)
+--   return 0

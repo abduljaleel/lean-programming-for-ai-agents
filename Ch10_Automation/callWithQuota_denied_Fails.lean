@@ -1,0 +1,12 @@
+-- Book listing around line 6007 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- @[spec]
+-- theorem callWithQuota_denied (quota cN : Nat) (c : ToolCall)
+--     (h : quota ≤ cN) :
+--     ⦃ fun s => ⌜s.counter = cN⌝ ⦄
+--     callWithQuota quota c
+--     ⦃ ⇓ r s => ⌜r = .denied "quota" ∧ s.counter = cN⌝ ⦄ := by
+--   mvcgen [callWithQuota]
+--   grind

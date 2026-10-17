@@ -1,0 +1,11 @@
+-- Book listing around line 1616 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- instance : Coe ToolCall String where
+--   coe c := c.name
+--
+-- def announce (s : String) : String := s!"call {s}"
+--
+-- #eval announce ({ name := "read", args := { raw := "[]" } } : ToolCall)
+-- -- "call read"

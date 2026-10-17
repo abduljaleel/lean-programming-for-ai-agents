@@ -1,0 +1,15 @@
+-- Book listing around line 2104 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def decodeGoal (line : String) : Option String :=
+--   let t := line.trim
+--   if t.isEmpty then none else some t
+--
+-- def decodeCall (line : String) : Option ToolCall :=
+--   -- pedagogical: "name arg" → ToolCall. Production uses Lean.Json.
+--   match line.trim.splitOn " " with
+--   | []       => none
+--   | n :: rest =>
+--       if n.isEmpty then none
+--       else some { name := n, args := { raw := " ".intercalate rest } }

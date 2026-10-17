@@ -1,0 +1,15 @@
+-- Book listing around line 9611 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Trace.calls : Trace → List ToolCall
+--   | .nil => []
+--   | .cons c _ t => c :: t.calls
+--
+-- def Trace.results : Trace → List (ToolResult Json)
+--   | .nil => []
+--   | .cons _ r t => r :: t.results
+--
+-- def Trace.length : Trace → Nat
+--   | .nil => 0
+--   | .cons _ _ t => t.length + 1

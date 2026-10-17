@@ -1,0 +1,14 @@
+-- Book listing around line 3340 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def named (n : String) : ToolCall → Prop :=
+--   fun c => c.name = n
+--
+-- def okPost {α : Type} (ok : α → Prop) : ToolCall → ToolResult α → Prop :=
+--   fun _c r => Safe ok r
+--
+-- def echoContract : Contract String where
+--   pre  := named "echo"
+--   run  := fun c _h => pure (.ok (c.args.raw))
+--   post := okPost nonempty

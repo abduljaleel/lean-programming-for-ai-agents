@@ -1,0 +1,24 @@
+-- Book listing around line 8996 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- import Std.Tactic.Do
+-- open Std.Do
+--
+-- structure AgentState where
+--   counter : Nat
+--   log     : List String
+-- deriving Repr
+--
+-- def mkFresh : StateM AgentState Nat := do
+--   let s ← get
+--   set { s with counter := s.counter + 1 }
+--   pure s.counter
+--
+-- @[spec]
+-- theorem mkFresh_spec (c : Nat) :
+--     ⦃ fun s => ⌜s.counter = c⌝ ⦄
+--     mkFresh
+--     ⦃ ⇓ r s => ⌜r = c ∧ c < s.counter⌝ ⦄ := by
+--   mvcgen [mkFresh]
+--   grind

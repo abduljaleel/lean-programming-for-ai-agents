@@ -1,0 +1,12 @@
+-- Book listing around line 2924 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem and_intro_term (p q : Prop) : p → q → p ∧ q :=
+--   fun hp hq => And.intro hp hq
+--
+-- theorem or_inl_term (p q : Prop) : p → p ∨ q :=
+--   fun hp => Or.inl hp
+--
+-- theorem forall_id (p : Nat → Prop) : ∀ n, p n → p n :=
+--   fun n hn => hn

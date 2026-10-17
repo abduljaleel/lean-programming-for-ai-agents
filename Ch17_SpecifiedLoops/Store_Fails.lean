@@ -1,0 +1,24 @@
+-- Book listing around line 9631 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- /-- Evidence the workflow has accumulated. Keys are the write-set names. -/
+-- abbrev Store := List (String × Json)
+--
+-- def Store.get (s : Store) (k : String) : Option Json :=
+--   s.lookup k
+--
+-- def Store.put (s : Store) (k : String) (v : Json) : Store :=
+--   (k, v) :: s.filter (fun ⟨k', _⟩ => k' != k)
+--
+-- def isNonEmptyString : Json → Bool
+--   | .str s => s ≠ ""
+--   | _      => false
+--
+-- def matchesJsonSchema (j : Json) (keys : List String) : Bool :=
+--   keys.all (fun k => (j.lookup k).isSome)
+--
+-- def isValidURL (j : Json) : Bool :=
+--   match j with
+--   | .str s => s.startsWith "https://" || s.startsWith "http://"
+--   | _      => false

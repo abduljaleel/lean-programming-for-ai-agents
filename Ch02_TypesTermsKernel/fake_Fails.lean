@@ -1,0 +1,12 @@
+-- Book listing around line 632 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem fake : 0 = 1 := by
+--   sorry
+--
+-- #print axioms fake
+-- -- 'fake' depends on axioms: [sorryAx]
+--
+-- -- #eval fake   -- refused: sorry-tainted
+-- -- #eval! fake  -- override; you have left the referee

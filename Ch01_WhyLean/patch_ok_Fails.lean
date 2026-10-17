@@ -1,0 +1,13 @@
+-- Book listing around line 189 (Ch01_WhyLean).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Checked, and worthless:
+-- theorem patch_ok : True := trivial
+--
+-- -- The right shape. Until `sorry` is gone, it is a wish.
+-- -- After `sorry` is gone, it is a fact about *these* definitions.
+-- theorem refund_le_charge (c : Charge) (r : Refund)
+--     (h : r.chargeId = c.id) :
+--     r.amount ≤ c.amount := by
+--   sorry

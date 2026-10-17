@@ -1,0 +1,11 @@
+-- Book listing around line 11059 (AppA_CheatSheet).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- macro x:ident " ↦ " y:term : term => `(fun $x => $y)
+--
+-- elab "suppose " n:ident " : " t:term : tactic => do
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     -- see Chapter 9
+--     pure ()

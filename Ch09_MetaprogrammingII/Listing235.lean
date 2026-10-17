@@ -1,0 +1,12 @@
+-- Book listing around line 4930 (Ch09_MetaprogrammingII).
+-- Wrong: catch runs in the half-mutated state.
+-- try
+--   doSomething
+-- catch _ =>
+--   doSomethingElse
+
+-- Right:
+-- try
+--   commitIfNoEx doSomething
+-- catch _ =>
+--   doSomethingElse

@@ -1,0 +1,15 @@
+-- Book listing around line 5699 (Ch10_Automation).
+-- needs the Aesop package, which this repo does not vendor
+
+-- import Aesop
+--
+-- @[aesop safe]
+-- theorem safe_of_ok {α : Type} (ok : α → Prop) (v : α) (h : ok v) :
+--     Safe ok (.ok v) := h
+--
+-- @[aesop safe]
+-- theorem not_denied {α : Type} (ok : α → Prop) (m : String)
+--     (h : Safe ok (.denied m)) : False := h
+--
+-- example (s : String) (h : s ≠ "") : Safe (fun t => t ≠ "") (.ok s) := by
+--   aesop

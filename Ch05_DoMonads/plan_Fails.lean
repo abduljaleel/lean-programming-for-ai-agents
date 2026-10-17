@@ -1,0 +1,11 @@
+-- Book listing around line 2281 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def plan (goal : String) : StateM Nat ToolCall := do
+--   let n ← get
+--   set (n + 1)
+--   pure { name := "echo", args := { raw := goal } }
+--
+-- def plannedCall (goal : String) : ToolCall :=
+--   (plan goal).run' 0

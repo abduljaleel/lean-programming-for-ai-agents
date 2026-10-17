@@ -1,0 +1,16 @@
+-- Quoted as comments: this listing belongs to a named Myagent package
+-- layout from the chapter, not the Chapter 18 library in this repo.
+
+-- -- Book listing around line 3945 (Ch07_LakeModules).
+-- -- Myagent/Spec.lean
+-- module
+--
+-- public structure Json where
+--   raw : String
+--
+-- public structure ToolCall where
+--   name : String
+--   args : Json
+--
+-- public def named (n : String) : ToolCall → Prop :=
+--   fun c => c.name = n

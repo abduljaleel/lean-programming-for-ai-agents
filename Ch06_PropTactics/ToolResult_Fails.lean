@@ -1,0 +1,14 @@
+-- Book listing around line 2967 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def ToolResult.isOk {α : Type} : ToolResult α → Bool
+--   | .ok _ => true
+--   | _     => false
+--
+-- def Safe {α : Type} (ok : α → Prop) : ToolResult α → Prop
+--   | .ok v     => ok v
+--   | .denied _ => False
+--   | .failed _ => False
+--
+-- def nonempty : String → Prop := fun s => s ≠ ""

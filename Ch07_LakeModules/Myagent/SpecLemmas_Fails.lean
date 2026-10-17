@@ -1,0 +1,12 @@
+-- Quoted as comments: this listing belongs to a named Myagent package
+-- layout from the chapter, not the Chapter 18 library in this repo.
+
+-- -- Book listing around line 3960 (Ch07_LakeModules).
+-- -- Myagent/SpecLemmas.lean
+-- module
+--
+-- public import Myagent.Spec
+-- import all Myagent.Spec
+--
+-- public theorem named_echo_iff (c : ToolCall) :
+--     named "echo" c ↔ c.name = "echo" := Iff.rfl

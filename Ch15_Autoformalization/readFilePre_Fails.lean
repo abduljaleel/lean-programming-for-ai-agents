@@ -1,0 +1,24 @@
+-- Book listing around line 8435 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def readFilePre [Capable ToolCall] (c : ToolCall) : Prop :=
+--   Capable.allowed c = true ∧
+--   c.name = "read_file" ∧
+--   ∃ path, c.args.lookup "path" = some (.str path) ∧
+--           underWorkspace path = true
+--
+-- def readFilePost (c : ToolCall) : ToolResult String → Prop
+--   | .ok s     => nonempty s
+--   | .denied m => nonempty m
+--   | .failed _ => False
+--
+-- structure Contract (α : Type) where
+--   pre  : ToolCall → Prop
+--   run  : (c : ToolCall) → (h : pre c) → IO (ToolResult α)
+--   post : ToolCall → ToolResult α → Prop
+--
+-- def readFileContract [Capable ToolCall] : Contract String where
+--   pre  := readFilePre
+--   run  := fun c h => pure (.denied "not implemented")
+--   post := readFilePost

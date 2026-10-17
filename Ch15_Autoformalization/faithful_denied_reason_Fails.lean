@@ -1,0 +1,16 @@
+-- Book listing around line 8460 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem faithful_denied_reason [Capable ToolCall] (c : ToolCall)
+--     (hpre : readFilePre c)
+--     (r : ToolResult String)
+--     (hpost : readFilePost c r)
+--     (hden : ∃ m, r = .denied m) :
+--     ∃ m, r = .denied m ∧ nonempty m := by
+--   obtain ⟨m, hm⟩ := hden
+--   exists m
+--   constructor
+--   · exact hm
+--   · simp [readFilePost, hm] at hpost
+--     exact hpost

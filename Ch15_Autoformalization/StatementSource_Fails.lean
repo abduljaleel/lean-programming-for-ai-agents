@@ -1,0 +1,31 @@
+-- Book listing around line 8658 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive StatementSource where
+--   | humanWritten
+--   | autoformalized (model : String) (promptHash : String)
+--   | ported (fromPin : String)
+-- deriving Repr, BEq
+--
+-- inductive MatchMethod where
+--   | humanPrint          -- reviewer read `#print` against English
+--   | beqPlus (refHash : String) (ok : Bool)
+--   | checkTrack (specFile : String)
+--   | none_
+-- deriving Repr
+--
+-- structure StatementAudit where
+--   english     : String
+--   leanType    : String
+--   source      : StatementSource
+--   match       : MatchMethod
+--   pin         : String          -- e.g. "leanprover/lean4:v4.32.0"
+--   reviewer    : Option String   -- absent ⇒ not mintable
+-- deriving Repr
+--
+-- inductive ClaimStatus where
+--   | verified   -- kernel term + audit trail complete
+--   | rejected
+--   | abstain    -- formalization uncertain; EG-VAR's honesty
+-- deriving Repr, BEq

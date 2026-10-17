@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: Lean Programming for AI Agents
+message: If you use this companion code or the book, please cite it as below.
+type: software
+authors:
+  - family-names: Kavungal
+    given-names: Abdul
+    alias: AK
+repository-code: https://github.com/abduljaleel/lean-programming-for-ai-agents
+url: https://awardwinningcreations.com/lean-code
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-17"
+keywords:
+  - Lean 4
+  - formal verification
+  - AI agents
+  - tool contracts
+identifiers:
+  - type: isbn
+    value: "978-1-7639286-0-2"
+    description: Paperback
+  - type: isbn
+    value: "978-1-7639286-1-9"
+    description: Kindle
+preferred-citation:
+  type: book
+  title: Lean Programming for AI Agents
+  subtitle: Machine-checked contracts, specs and proofs for agent systems
+  authors:
+    - family-names: Kavungal
+      given-names: Abdul
+      alias: AK
+  publisher: Award Winning Creations
+  isbn: "978-1-7639286-0-2"
+  year: 2026
+  edition: 1
+  url: https://awardwinningcreations.com

@@ -1,0 +1,12 @@
+-- Book listing around line 4585 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- module
+--
+-- public meta import Lean
+-- public import Myagent.Spec   -- shake: keep, if a future tactic looks it up
+--
+-- public section
+--
+-- macro x:ident " ↦ " y:term : term => `(fun $x => $y)

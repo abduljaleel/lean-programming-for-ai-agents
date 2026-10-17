@@ -1,0 +1,14 @@
+-- Book listing around line 1575 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive DenyReason where
+--   | sandbox
+--   | quota
+--   | auth
+-- deriving Repr, BEq, DecidableEq, Inhabited
+--
+-- #synth Repr DenyReason
+-- #synth BEq DenyReason
+-- #synth Inhabited DenyReason
+-- #synth DecidableEq DenyReason

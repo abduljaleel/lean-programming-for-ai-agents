@@ -1,0 +1,16 @@
+-- Book listing around line 990 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Trace.length : Trace → Nat
+--   | .empty       => 0
+--   | .step _ _ t  => 1 + t.length
+--
+-- def Trace.calls : Trace → List ToolCall
+--   | .empty         => []
+--   | .step c _ t    => c :: t.calls
+--
+-- def Trace.denied : Trace → Bool
+--   | .empty => false
+--   | .step _ (.denied _) _ => true
+--   | .step _ _ t => t.denied

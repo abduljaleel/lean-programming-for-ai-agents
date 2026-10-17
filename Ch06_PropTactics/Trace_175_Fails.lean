@@ -1,0 +1,28 @@
+-- Book listing around line 3398 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Trace.results : Trace → List (ToolResult String)
+--   | .empty => []
+--   | .step _ r rest => r :: rest.results
+--
+-- theorem safe_results_all_ok (ok : String → Prop) :
+--     (t : Trace) → t.safe ok →
+--       ∀ r ∈ t.results, r.isOk = true := by
+--   intro t hs r hin
+--   induction t with
+--   | empty =>
+--       simp [Trace.results] at hin
+--   | step call res rest ih =>
+--       simp [Trace.results] at hin
+--       cases hin with
+--       | inl hEq =>
+--           -- r = res
+--           cases hs with
+--           | intro hres _hrest =>
+--               rw [hEq]
+--               exact safe_implies_isOk ok res hres
+--       | inr hTail =>
+--           cases hs with
+--           | intro _hres hrest =>
+--               exact ih hrest hTail

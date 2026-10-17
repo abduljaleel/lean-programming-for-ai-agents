@@ -1,0 +1,12 @@
+-- Book listing around line 2321 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def stepE (goal : String) (c : ToolCall) [Capable ToolCall] :
+--     AgentEM (ToolResult Json) := do
+--   IO.println s!"goal: {goal}"
+--   try
+--     gatedStub c
+--   catch m =>
+--     IO.eprintln s!"aborted: {m}"
+--     pure (.failed m)

@@ -1,0 +1,16 @@
+-- Book listing around line 10002 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def incFuelDown : StateM LoopState Nat := do
+--   let s ← get
+--   set { s with fuel := s.fuel - 1 }
+--   pure s.fuel
+--
+-- @[spec]
+-- theorem incFuelDown_spec (k : Nat) (h : k > 0) :
+--     ⦃ fun s => ⌜s.fuel = k⌝ ⦄
+--     incFuelDown
+--     ⦃ ⇓ r s => ⌜r = k ∧ s.fuel = k - 1⌝ ⦄ := by
+--   mvcgen [incFuelDown]
+--   grind

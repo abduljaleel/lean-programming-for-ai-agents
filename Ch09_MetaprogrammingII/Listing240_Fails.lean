@@ -1,0 +1,12 @@
+-- Book listing around line 5033 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "custom_have " n:ident " : " t:term " := " v:term : tactic =>
+--   withMainContext do
+--     let t ← elabTerm t none
+--     let v ← elabTermEnsuringType v t
+--     liftMetaTactic fun mvarId => do
+--       let mvarIdNew ← mvarId.assert n.getId t v
+--       let (_, mvarIdNew) ← mvarIdNew.intro1P
+--       return [mvarIdNew]

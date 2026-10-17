@@ -1,0 +1,30 @@
+-- Book listing around line 5171 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "check_contract! " c:term " on " call:term " giving " v:term : tactic => do
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     let cE    ← elabTerm c none
+--     let callE ← elabTermEnsuringType call (mkConst ``ToolCall)
+--     let cTy   ← inferType cE
+--     let some (_, α) := cTy.app2? ``Contract
+--       | throwTacticEx `check_contract! mvarId m!"expected a Contract"
+--     let vE    ← elabTermEnsuringType v α
+--     synthesizeSyntheticMVarsNoPostponing
+--     let preT  ← mkAppM ``Contract.pre #[cE, callE]
+--     let rE    ← mkAppM ``ToolResult.ok #[vE]
+--     let postT ← mkAppM ``Contract.post #[cE, callE, rE]
+--     let conj  ← mkAppM ``And #[preT, postT]
+--     let tgt   ← mvarId.getType
+--     unless (← isDefEq tgt conj) do
+--       -- If the user wrote `example : echoC.pre _ ∧ echoC.post _ _`, unify.
+--       -- Otherwise, replace the goal *type* only when it is True.
+--       unless (← isDefEq tgt (mkConst ``True)) do
+--         throwTacticEx `check_contract! mvarId
+--           m!"target should be True or the VC conjunction, got {tgt}"
+--     let gPre  ← mkFreshExprMVar (some preT)  .syntheticOpaque `pre
+--     let gPost ← mkFreshExprMVar (some postT) .syntheticOpaque `post
+--     let proof ← mkAppM ``And.intro #[gPre, gPost]
+--     mvarId.assign proof
+--     replaceMainGoal [gPre.mvarId!, gPost.mvarId!]

@@ -1,0 +1,37 @@
+-- Book listing around line 3260 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def Trace.denied : Trace → Bool
+--   | .empty => false
+--   | .step _ (.denied _) _ => true
+--   | .step _ _ rest => rest.denied
+--
+-- def Trace.safe (ok : String → Prop) : Trace → Prop
+--   | .empty => True
+--   | .step _ r rest => Safe ok r ∧ Trace.safe ok rest
+--
+-- theorem safe_trace_no_denied (ok : String → Prop) :
+--     (t : Trace) → t.safe ok → t.denied = false := by
+--   intro t
+--   induction t with
+--   | empty =>
+--       intro _h
+--       rfl
+--   | step call r rest ih =>
+--       intro h
+--       -- h : Safe ok r ∧ Trace.safe ok rest
+--       cases r with
+--       | ok v =>
+--           cases h with
+--           | intro hr hrest =>
+--               simp [Trace.denied]
+--               exact ih hrest
+--       | denied msg =>
+--           cases h with
+--           | intro hr _ =>
+--               exact False.elim hr
+--       | failed msg =>
+--           cases h with
+--           | intro hr _ =>
+--               exact False.elim hr

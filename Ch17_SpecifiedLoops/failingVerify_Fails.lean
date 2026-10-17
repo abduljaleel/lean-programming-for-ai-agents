@@ -1,0 +1,17 @@
+-- Book listing around line 9841 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def failingVerify : StepRecord where
+--   node := nid "verify"
+--   call := { name := "run_tests", args := .obj [("suite", .str "tests/")] }
+--   result := .ok (.obj [("log", .str "tests/test_bill.py::test_refund FAILED")])
+--   storeIn := [("diff", .str "--- a/bill.py\n+++ b/bill.py\n")]
+--   storeOut := [
+--     ("diff", .str "--- a/bill.py\n+++ b/bill.py\n"),
+--     ("testLog", .str "tests/test_bill.py::test_refund FAILED"),
+--     ("verifyOk", .bool true)   -- the lie
+--   ]
+--
+-- example : replayStep sweLoop failingVerify = false := by
+--   decide

@@ -1,0 +1,26 @@
+-- Book listing around line 5980 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def callWithQuota (quota : Nat) (c : ToolCall) :
+--     StateM AgentState (ToolResult Json) := do
+--   let s ← get
+--   if s.counter ≥ quota then
+--     pure (.denied "quota")
+--   else
+--     set { s with
+--       counter := s.counter + 1
+--       log := c.name :: s.log }
+--     pure (.ok { raw := "ok" })
+--
+-- @[spec]
+-- theorem callWithQuota_ok (quota cN : Nat) (c : ToolCall)
+--     (h : cN < quota) :
+--     ⦃ fun s => ⌜s.counter = cN⌝ ⦄
+--     callWithQuota quota c
+--     ⦃ ⇓ r s =>
+--         ⌜ r = .ok { raw := "ok" }
+--           ∧ s.counter = cN + 1
+--           ∧ s.log.head? = some c.name ⌝ ⦄ := by
+--   mvcgen [callWithQuota]
+--   grind

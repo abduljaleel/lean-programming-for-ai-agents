@@ -1,0 +1,13 @@
+-- Book listing around line 9759 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def checkNodePre (n : Node) (s : Store) : Bool :=
+--   match n.id.name with
+--   | "explore"   => true
+--   | "reproduce" => isNonEmptyString (s.get "bugReport" |>.getD .null)
+--   | "fix"       => isNonEmptyString (s.get "failingTest" |>.getD .null)
+--   | "verify"    => isNonEmptyString (s.get "diff" |>.getD .null)
+--   | "patch"     => s.get "verifyOk" == some (.bool true) &&
+--                     isNonEmptyString (s.get "diff" |>.getD .null)
+--   | _           => false

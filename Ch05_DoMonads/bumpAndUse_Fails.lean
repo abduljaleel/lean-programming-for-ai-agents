@@ -1,0 +1,13 @@
+-- Book listing around line 2449 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def bumpAndUse : IO Nat := do
+--   let mut y := 1
+--   let x ← (← if y < 3 then
+--               y := y + 1
+--               pure y
+--             else
+--               pure 0)
+--   return x + y
+-- -- x = 2, y = 2, result 4

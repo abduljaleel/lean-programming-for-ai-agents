@@ -1,0 +1,13 @@
+-- Book listing around line 7154 (Ch12_PythonFFI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def ToolResult.toJsonTag : ToolResult String → UInt8
+--   | .ok _ => 0
+--   | .denied _ => 1
+--   | .failed _ => 2
+--
+-- @[export tool_result_tag]
+-- def toolResultTag (ok : UInt8) (denied : UInt8) : UInt8 :=
+--   -- flattened demo: 0 = ok, 1 = denied, 2 = failed
+--   if ok == 1 then 0 else if denied == 1 then 1 else 2

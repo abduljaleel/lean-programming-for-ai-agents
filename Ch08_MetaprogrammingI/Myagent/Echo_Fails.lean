@@ -1,0 +1,14 @@
+-- Quoted as comments: this listing belongs to a named Myagent package
+-- layout from the chapter, not the Chapter 18 library in this repo.
+
+-- -- Book listing around line 4653 (Ch08_MetaprogrammingI).
+-- -- Myagent/Echo.lean
+-- module
+--
+-- public import Myagent.Syntax
+-- public import Myagent.Spec
+--
+-- namedContract echoC "echo" : String then (s ↦ s ≠ "")
+--
+-- #assertType echoC : Contract String
+-- #assertPre (c ↦ c.name = "echo")

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Publisher site
+    url: https://awardwinningcreations.com
+    about: Award Winning Creations, home of Lean Programming for AI Agents
+  - name: Companion download page
+    url: https://awardwinningcreations.com/lean-code
+    about: Short URL that points readers at this code

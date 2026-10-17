@@ -1,0 +1,7 @@
+-- Book listing around line 2794 (Ch05_DoMonads).
+-- Sketch. Chapter 9 fills the names in.
+-- elab "suppose " n:ident " : " t:term : tactic => do
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     let ty ← elabType t
+--     ...

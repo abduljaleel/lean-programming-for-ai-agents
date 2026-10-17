@@ -1,0 +1,15 @@
+-- Book listing around line 9935 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive LampStatus where
+--   | pass       -- no errors; may contain sorry
+--   | complete   -- no errors, no sorry, axioms expected, statement matches
+--   | fail
+-- deriving Repr, BEq
+--
+-- def lampVerdict (r : CheckReport) (expectedHash : UInt64) : LampStatus :=
+--   if r.hasError then .fail
+--   else if r.hasSorry then .pass
+--   else if _root_.hash r.statement != expectedHash then .pass  -- not complete
+--   else .complete

@@ -1,0 +1,37 @@
+-- Book listing around line 9964 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- import Std.Tactic.Do
+-- open Std.Do
+--
+-- structure LoopState where
+--   fuel    : Nat
+--   store   : Store
+--   trace   : Trace
+--   halted  : Bool
+-- deriving Repr
+--
+-- def stepOnce (w : Workflow) (n : Node) (c : ToolCall)
+--     (r : ToolResult Json) : StateM LoopState Unit := do
+--   let s ← get
+--   let store' := applyWrites n r s.store
+--   set { s with
+--     store := store'
+--     trace := .cons c r s.trace
+--     fuel  := s.fuel - 1
+--     halted := n.id == w.finish }
+--
+-- def runLoop (w : Workflow) (plan : List (Node × ToolCall × ToolResult Json)) :
+--     StateM LoopState Unit := do
+--   for (n, c, r) in plan do
+--     let s ← get
+--     if s.halted || s.fuel = 0 then
+--       pure ()
+--     else
+--       stepOnce w n c r
+--
+-- /-- Well-formed store: remaining fuel and trace length stay ≤ 32.
+--     mvcgen will ask for a loop invariant. -/
+-- def storeWf (w : Workflow) (s : LoopState) : Prop :=
+--   s.fuel ≤ 32 ∧ Trace.length s.trace ≤ 32

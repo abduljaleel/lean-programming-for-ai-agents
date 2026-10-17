@@ -1,0 +1,12 @@
+-- Book listing around line 3355 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def echoPure (c : ToolCall) : ToolResult String :=
+--   .ok (c.args.raw)
+--
+-- theorem echo_post_of_nonempty_arg (c : ToolCall)
+--     (hpre : named "echo" c)
+--     (harg : c.args.raw ≠ "") :
+--     okPost nonempty c (echoPure c) :=
+--   harg

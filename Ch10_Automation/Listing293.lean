@@ -1,0 +1,7 @@
+-- Book listing around line 5942 (Ch10_Automation).
+-- Shape, not a pin-precise script:
+-- example (n : Nat) :
+--     ⦃⌜True⌝⦄ sumTo n ⦃⇓ r => ⌜r = n * (n - 1) / 2⌝⦄ := by
+--   mvcgen [sumTo]
+--   -- invariant goal: state the relation between acc and the range index
+--   -- then grind / ring the algebra

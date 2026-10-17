@@ -1,0 +1,13 @@
+-- Book listing around line 4749 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- syntax (name := assertTy) "#assertType " term " : " term : command
+--
+-- elab_rules : command
+--   | `(#assertType $t:term : $ty:term) => do
+--       liftTermElabM do
+--         let expected ← elabType ty
+--         let _ ← elabTermEnsuringType t expected
+--         synthesizeSyntheticMVarsNoPostponing
+--       logInfo "ok"

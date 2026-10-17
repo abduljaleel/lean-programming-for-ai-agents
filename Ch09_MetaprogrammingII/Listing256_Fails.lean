@@ -1,0 +1,11 @@
+-- Book listing around line 5311 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- module
+--
+-- public meta import Lean
+-- public import Myagent.Spec   -- Contract, ToolCall
+--
+-- public meta elab "suppose " n:ident " : " t:term : tactic => do
+--   ...

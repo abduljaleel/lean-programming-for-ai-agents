@@ -1,0 +1,13 @@
+-- Book listing around line 2831 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def recordThenThrow : AgentEM Unit := do
+--   record { name := "x", args := { raw := "" } } (.denied "n")
+--   throw "n"
+--
+-- #eval do
+--   let (r, t) ← recordThenThrow.run .empty
+--   -- r is .error "n"
+--   -- t.length should be 1, not 0
+--   pure (t.length, match r with | .error _ => true | .ok _ => false)

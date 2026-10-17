@@ -1,0 +1,16 @@
+-- Book listing around line 6096 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def echoPre (c : ToolCall) : Prop :=
+--   c.name = "echo" ∧ c.args.raw ≠ ""
+--
+-- def echoPost (c : ToolCall) : ToolResult String → Prop
+--   | .ok s     => s ≠ "" ∧ s = c.args.raw
+--   | .denied m => m ≠ ""
+--   | .failed _ => True
+--
+-- example (c : ToolCall) (h : echoPre c) :
+--     echoPost c (.ok c.args.raw) := by
+--   simp [echoPre, echoPost] at *
+--   grind

@@ -1,0 +1,38 @@
+-- Book listing around line 4616 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Myagent/Syntax.lean
+-- module
+--
+-- public meta import Lean
+-- public import Myagent.Spec
+--
+-- open Lean Elab Command Term
+--
+-- macro x:ident " ↦ " y:term : term => `(fun $x => $y)
+--
+-- syntax "namedContract " ident " " str " : " term " then " term : command
+--
+-- macro_rules
+--   | `(command| namedContract $n:ident $nm:str : $α:term then $ok:term) =>
+--     `(command|
+--         def $n : Contract $α where
+--           pre  := fun c => c.name = $nm
+--           run  := fun c _h =>
+--             pure (ToolResult.ok (c.args.raw))
+--           post := fun _c r => Safe $ok r)
+--
+-- elab "#assertType " t:term " : " ty:term : command => do
+--   liftTermElabM do
+--     let expected ← elabType ty
+--     let _ ← elabTermEnsuringType t expected
+--     synthesizeSyntheticMVarsNoPostponing
+--   logInfo "ok"
+--
+-- elab "#assertPre " t:term : command => do
+--   liftTermElabM do
+--     let ty ← elabType (← `(ToolCall → Prop))
+--     let _ ← elabTermEnsuringType t ty
+--     synthesizeSyntheticMVarsNoPostponing
+--   logInfo "pre ok"

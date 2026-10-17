@@ -1,0 +1,11 @@
+-- Book listing around line 4865 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- #eval show MetaM Unit from do
+--   let m ← mkFreshExprMVar (some (mkConst ``Nat)) (userName := `n)
+--   IO.println (← ppExpr m)
+--   m.mvarId!.assign (mkNatLit 3)
+--   IO.println (← ppExpr (← instantiateMVars m))
+-- -- ?n
+-- -- 3

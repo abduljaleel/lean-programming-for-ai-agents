@@ -1,0 +1,19 @@
+-- Book listing around line 5066 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def echoPre (c : ToolCall) : Prop :=
+--   c.name = "echo" ∧ c.args.raw ≠ ""
+--
+-- def echoPost (c : ToolCall) : ToolResult String → Prop
+--   | .ok s     => s ≠ "" ∧ s = c.args.raw
+--   | .denied m => m ≠ ""
+--   | .failed _ => True
+--
+-- def echoRun (c : ToolCall) (_h : echoPre c) : IO (ToolResult String) := do
+--   pure (.ok c.args.raw)
+--
+-- def echoC : Contract String where
+--   pre  := echoPre
+--   run  := echoRun
+--   post := echoPost

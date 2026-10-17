@@ -1,0 +1,14 @@
+-- Book listing around line 2553 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def withTightPolicy (p : Policy) (act : AgentRM α) : AgentRM α :=
+--   withReader (fun _ => { p with allowShell := false }) act
+--
+-- def noShellBurst (calls : List ToolCall) : AgentRM Unit := do
+--   let p ← read
+--   for c in calls do
+--     withTightPolicy p (do←
+--       let r ← stubUnderPolicy c
+--       if let .denied _ := r then
+--         break)

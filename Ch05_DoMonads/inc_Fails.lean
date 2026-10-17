@@ -1,0 +1,11 @@
+-- Book listing around line 2755 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def inc (n : Nat) : Id Nat := do
+--   let a ← pure (n + 1)
+--   let b ← pure (a + 2)
+--   pure (b + 3)
+--
+-- #eval inc 1
+-- -- 7

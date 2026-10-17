@@ -1,0 +1,17 @@
+-- Book listing around line 1636 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- A diamond you can type. Two paths from D to A.
+-- class A
+-- class B extends A
+-- class C extends A
+-- class D extends B, C
+--
+-- instance : A := {}
+-- instance : B := {}
+-- instance : C := {}
+-- instance : D := {}
+--
+-- #synth D
+-- -- works; the term is small

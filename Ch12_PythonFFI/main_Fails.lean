@@ -1,0 +1,16 @@
+-- Book listing around line 6802 (Ch12_PythonFFI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def main (args : List String) : IO UInt32 := do
+--   match args with
+--   | ["check", trace] =>
+--     if checkTraceString trace then
+--       IO.println "accept"
+--       return 0
+--     else
+--       IO.println "reject"
+--       return 1
+--   | _ =>
+--     IO.eprintln "usage: myagent check <trace>"
+--     return 2

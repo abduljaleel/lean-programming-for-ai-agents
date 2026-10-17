@@ -1,0 +1,15 @@
+-- Book listing around line 5120 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- example (g : True) : True := by
+--   check_contract echoC on { name := "echo", args := { raw := "hi" } }
+--   -- goal 1: echoC.pre { name := "echo", ... }
+--   -- goal 2: echoC.post … r
+--   -- goal 3: True  (original), with preH and postH in context
+--   · -- pre
+--     simp [Contract.pre, echoC, echoPre]
+--   · -- post: r is a fresh ToolResult String
+--     -- this goal is *not* automatically true; that is the point
+--     sorry
+--   · exact g

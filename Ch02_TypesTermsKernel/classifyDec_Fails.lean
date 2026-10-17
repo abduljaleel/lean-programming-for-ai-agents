@@ -1,0 +1,14 @@
+-- Book listing around line 834 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def classifyDec (n : Nat) : String :=
+--   if h : n = 0 then
+--     -- h : n = 0
+--     "zero"
+--   else
+--     -- h : ¬ n = 0
+--     "nonzero"
+--
+-- #eval classifyDec 0
+-- -- "zero"

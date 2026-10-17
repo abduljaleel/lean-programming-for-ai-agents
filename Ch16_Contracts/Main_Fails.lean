@@ -1,0 +1,43 @@
+-- Book listing around line 9063 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Main.lean (checker)
+-- inductive Verdict where
+--   | accept
+--   | reject (reason : String)
+--   | abstain (reason : String)
+-- deriving Repr
+--
+-- def verdictToString : Verdict → String
+--   | .accept        => "ACCEPT"
+--   | .reject r      => s!"REJECT {r}"
+--   | .abstain r     => s!"ABSTAIN {r}"
+--
+-- /-- Dispatch on the tool name. Unknown tools abstain, they do not accept. -/
+-- def checkCall (c : ToolCall) : Verdict :=
+--   if c.name == "read_file" then
+--     if checkReadFilePre c then .accept
+--     else .reject "read_file precondition failed"
+--   else if c.name == "write_file" then
+--     .abstain "write_file contract not yet audited"
+--   else
+--     .abstain s!"unknown tool {c.name}"
+--
+-- def main (args : List String) : IO UInt32 := do
+--   let raw ← IO.getStdin.readToEnd
+--   match decodeToolCall (parseJson raw) with
+--   | none =>
+--       IO.eprintln "REJECT decode failed"
+--       return 2
+--   | some c =>
+--       match checkCall c with
+--       | .accept =>
+--           IO.println "ACCEPT"
+--           return 0
+--       | .reject r =>
+--           IO.eprintln s!"REJECT {r}"
+--           return 1
+--       | .abstain r =>
+--           IO.eprintln s!"ABSTAIN {r}"
+--           return 3

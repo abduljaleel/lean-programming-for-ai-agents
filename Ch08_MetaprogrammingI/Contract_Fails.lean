@@ -1,0 +1,24 @@
+-- Book listing around line 4378 (Ch08_MetaprogrammingI).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure Contract (α : Type) where
+--   pre  : ToolCall → Prop
+--   run  : (c : ToolCall) → (h : pre c) → IO (ToolResult α)
+--   post : ToolCall → ToolResult α → Prop
+--
+-- syntax "contract " ident " : " term " where" ppLine
+--       "pre " term ppLine
+--       "run " term ppLine
+--       "post " term : command
+--
+-- macro_rules
+--   | `(command| contract $n:ident : $α:term where
+--         pre $pre:term
+--         run $run:term
+--         post $post:term) =>
+--     `(command|
+--         def $n : Contract $α where
+--           pre  := $pre
+--           run  := $run
+--           post := $post)

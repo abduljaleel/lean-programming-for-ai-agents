@@ -1,0 +1,21 @@
+-- Book listing around line 1414 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def handle (id : ToolId) (c : Call id) : ToolResult (Reply id) :=
+--   match id, c.input with
+--   | .readFile, .readFile path =>
+--       if path.startsWith "workspace/" then
+--         .ok { output := .readFile "<stub>" }
+--       else
+--         .denied "sandbox"
+--   | .writeFile, .writeFile path _ =>
+--       if path.startsWith "workspace/" then
+--         .ok { output := .writeFile }
+--       else
+--         .denied "sandbox"
+--   | .listDir, .listDir path =>
+--       let xs : List String := ["a.lean", "b.lean"]
+--       .ok { output := .listDir xs.length xs.toVector }
+--   | .finish, .finish _ =>
+--       .ok { output := .finish }

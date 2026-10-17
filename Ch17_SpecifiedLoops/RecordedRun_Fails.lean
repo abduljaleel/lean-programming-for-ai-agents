@@ -1,0 +1,21 @@
+-- Book listing around line 9733 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure RecordedRun where
+--   specName : String
+--   start    : Store
+--   result   : ToolResult Json
+--   finish   : Store
+--
+-- /-- Fixed interpretation of a recorded run. Not a free pre/post.
+--     An `.ok` result attests that the finish store is nonempty.
+--     Denied/failed results denote `True`. -/
+-- def interpRun (r : RecordedRun) : Prop :=
+--   match r.result with
+--   | .ok _ => r.finish ≠ []
+--   | _     => True
+--
+-- /-- Level-3 assumption. The axiom mints only what *this* run denotes.
+--     A free `post := False` is impossible because `post` is not a parameter. -/
+-- axiom llmExecAttest (r : RecordedRun) : interpRun r

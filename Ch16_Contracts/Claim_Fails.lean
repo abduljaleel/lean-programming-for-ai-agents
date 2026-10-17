@@ -1,0 +1,48 @@
+-- Book listing around line 9169 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- /-- A claim the agent would like to treat as done. -/
+-- structure Claim where
+--   text : String
+--   prop : Prop
+--
+-- /-- Evidence a tool produced. Not a proof. -/
+-- structure Evidence where
+--   tool : String
+--   payload : Json
+--
+-- /-- Fixed interpreter: the only proposition an attestation may inhabit.
+--     Residual error is formalization error in `interp`, not a free `p`. -/
+-- def interp (e : Evidence) : Prop :=
+--   match e.payload with
+--   | .str s => s ≠ ""
+--   | _      => False
+--
+-- /-- Attestation axiom: if the table tool returned this cell, `interp e`
+--     holds. This is Level 3. Residual error is formalization error : 
+--     we wrote the wrong `interp` for the cell. -/
+-- axiom tableAttest (e : Evidence) :
+--     e.tool = "table_lookup" → interp e
+--
+-- inductive Status where
+--   | verified
+--   | rejected
+--   | abstained
+-- deriving Repr, BEq
+--
+-- /-- The kernel-facing gate. `#print axioms interp_of_table` lists
+--     `tableAttest`. A computational `def` that discards the proof is
+--     not that gate. -/
+-- theorem interp_of_table (e : Evidence)
+--     (h : e.tool = "table_lookup") : interp e :=
+--   tableAttest e h
+--
+-- /-- The only function that is allowed to return `verified`.
+--     It demands a proof of `interp e`, which the kernel will
+--     only accept via `tableAttest` (or a real term). -/
+-- def mint (c : Claim) (e : Evidence)
+--     (h : e.tool = "table_lookup")
+--     (hprop : c.prop = interp e) : Status :=
+--   let _pf : interp e := tableAttest e h
+--   .verified

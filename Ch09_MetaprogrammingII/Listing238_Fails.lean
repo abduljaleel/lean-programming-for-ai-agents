@@ -1,0 +1,13 @@
+-- Book listing around line 5004 (Ch09_MetaprogrammingII).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- elab "suppose' " n:ident " : " t:term : tactic => do
+--   let n : Name := n.getId
+--   let mvarId ← getMainGoal
+--   mvarId.withContext do
+--     let t ← elabType t
+--     let p ← mkFreshExprMVar t .syntheticOpaque n
+--     let (_, mvarIdNew) ← MVarId.intro1P (← mvarId.assert n t p)
+--     let rest ← getGoals
+--     setGoals (mvarIdNew :: rest.drop 1 ++ [p.mvarId!])

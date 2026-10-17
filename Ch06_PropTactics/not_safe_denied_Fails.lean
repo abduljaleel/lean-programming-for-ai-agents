@@ -1,0 +1,13 @@
+-- Book listing around line 3197 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem not_safe_denied {α : Type} (ok : α → Prop) (msg : String) :
+--     ¬ Safe ok (.denied msg) := by
+--   intro h
+--   exact h
+--
+-- theorem not_safe_failed {α : Type} (ok : α → Prop) (msg : String) :
+--     ¬ Safe ok (.failed msg) := by
+--   intro h
+--   exact h

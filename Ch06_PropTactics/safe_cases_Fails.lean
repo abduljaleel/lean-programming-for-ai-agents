@@ -1,0 +1,16 @@
+-- Book listing around line 3218 (Ch06_PropTactics).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem safe_cases {α : Type} (ok : α → Prop) (r : ToolResult α) :
+--     Safe ok r → r.isOk = true := by
+--   cases r with
+--   | ok v =>
+--       intro _h
+--       rfl
+--   | denied msg =>
+--       intro h
+--       exact False.elim h
+--   | failed msg =>
+--       intro h
+--       exact False.elim h

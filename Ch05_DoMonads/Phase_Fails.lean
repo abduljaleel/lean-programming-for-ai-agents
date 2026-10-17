@@ -1,0 +1,17 @@
+-- Book listing around line 2574 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- inductive Phase where
+--   | needAuth | authed
+-- deriving Repr
+--
+-- inductive Session : Phase → Type where
+--   | anon  : Session .needAuth
+--   | login : String → Session .needAuth → Session .authed
+--
+-- -- 4.32: this `do match` does *not* refine `p` in each arm.
+-- def Session.user? [Monad m] {p : Phase} (s : Session p) : m (Option String) := do
+--   match s with
+--   | .anon      => pure none
+--   | .login u _ => pure (some u)

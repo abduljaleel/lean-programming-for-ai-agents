@@ -1,0 +1,13 @@
+-- Book listing around line 1776 (Ch04_Typeclasses).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- namespace Test
+-- instance : Capable .listDir where
+--   run
+--     | .listDir _ =>
+--         let xs := ["a.lean"]
+--         .ok (.listDir xs.length xs.toVector)
+-- end Test
+--
+-- -- Outside `Test`, `#synth Capable .listDir` still fails.

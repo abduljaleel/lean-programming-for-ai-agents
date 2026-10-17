@@ -1,0 +1,15 @@
+-- Book listing around line 1218 (Ch03_InductiveTypes).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure Identified where
+--   id : String
+--
+-- structure Charge extends Identified where
+--   amount : Nat
+-- deriving Repr
+--
+-- def c : Charge := { id := "ch_1", amount := 100 }
+--
+-- #eval c.toIdentified
+-- -- { id := "ch_1" }

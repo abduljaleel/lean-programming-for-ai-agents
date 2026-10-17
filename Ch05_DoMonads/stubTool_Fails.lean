@@ -1,0 +1,37 @@
+-- Book listing around line 2166 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def stubTool (c : ToolCall) : IO (ToolResult Json) := do
+--   if c.name == "shell" then
+--     pure (.denied "policy")
+--   else if c.name.isEmpty then
+--     pure (.failed "empty name")
+--   else
+--     -- A stub. Chapter 12 will FFI; Chapter 16 will contract.
+--     pure (.ok { raw := s!"stub:{c.name}" })
+--
+-- def stepIO (goal : String) (c : ToolCall) : IO (ToolResult Json) := do
+--   IO.println s!"goal: {goal}"
+--   IO.println s!"call: {c.name}"
+--   stubTool c
+--
+-- def main (args : List String) : IO UInt32 := do
+--   let goalLine ← (← IO.getStdin).getLine
+--   let callLine ← (← IO.getStdin).getLine
+--   match decodeBoth goalLine callLine with
+--   | none =>
+--       IO.eprintln "decode failed"
+--       return 2
+--   | some (goal, c) =>
+--       let r ← stepIO goal c
+--       match r with
+--       | .ok _      =>
+--           IO.println "ok"
+--           return 0
+--       | .denied m  =>
+--           IO.eprintln s!"denied: {m}"
+--           return 1
+--       | .failed m  =>
+--           IO.eprintln s!"failed: {m}"
+--           return 1

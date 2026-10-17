@@ -1,0 +1,14 @@
+-- Book listing around line 9292 (Ch16_Contracts).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem obviously : ∀ n : Nat, n = n := fun _ => rfl
+--
+-- #print axioms obviously
+-- -- 'obviously' does not depend on any axioms
+--
+-- axiom hidden : ∀ n : Nat, n = n + 1
+-- theorem sneaky (n : Nat) : n = n + 1 := hidden n
+--
+-- #print axioms sneaky
+-- -- sneaky depends on axioms: [hidden]

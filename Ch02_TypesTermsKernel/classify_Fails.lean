@@ -1,0 +1,12 @@
+-- Book listing around line 505 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- -- Data you will run:
+-- def classify (n : Nat) : Except String Nat :=
+--   if n = 0 then .error "zero" else .ok n
+--
+-- -- A fact you will erase:
+-- def classifyOk (n : Nat) (h : classify n = .ok n) : n ≠ 0 := by
+--   simp [classify] at h
+--   split at h <;> simp_all

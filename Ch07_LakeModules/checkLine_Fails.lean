@@ -1,0 +1,24 @@
+-- Quoted as comments: this listing belongs to a named Myagent package
+-- layout from the chapter, not the Chapter 18 library in this repo.
+
+-- -- Book listing around line 4081 (Ch07_LakeModules).
+-- module
+--
+-- public import Myagent.Spec
+-- import Myagent.SpecLemmas
+--
+-- def checkLine (line : String) : IO UInt32 := do
+--   -- a stub: accept only the echo name
+--   if line = "echo" then
+--     IO.println "accept"
+--     return 0
+--   else
+--     IO.println "reject"
+--     return 1
+--
+-- def main (args : List String) : IO UInt32 := do
+--   match args with
+--   | [line] => checkLine line
+--   | _ =>
+--       IO.eprintln "usage: myagent <name>"
+--       return 2

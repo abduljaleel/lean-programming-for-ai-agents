@@ -1,0 +1,19 @@
+-- Book listing around line 570 (Ch02_TypesTermsKernel).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem two : 1 + 1 = 2 := rfl
+--
+-- theorem everyNatEqItself : ∀ n : Nat, n = n :=
+--   fun n => rfl
+--
+-- -- This *does* close with rfl. Addition is defined by
+-- -- recursion on the second argument; `0` is a constructor.
+-- theorem add_zero (n : Nat) : n + 0 = n := rfl
+--
+-- -- This does *not* close with rfl. The zero is in first position;
+-- -- `n` is not a constructor there.
+-- theorem zero_add (n : Nat) : 0 + n = n := by
+--   induction n with
+--   | zero => rfl
+--   | succ n ih => exact congrArg Nat.succ ih

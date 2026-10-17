@@ -1,0 +1,16 @@
+-- Book listing around line 5909 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def mkFresh2 : StateM AgentState (Nat × Nat) := do
+--   let a ← mkFresh
+--   let b ← mkFresh
+--   pure (a, b)
+--
+-- @[spec]
+-- theorem mkFresh2_spec (c : Nat) :
+--     ⦃ fun s => ⌜s.counter = c⌝ ⦄
+--     mkFresh2
+--     ⦃ ⇓ r s => ⌜r.1 = c ∧ r.2 = c + 1 ∧ s.counter = c + 2⌝ ⦄ := by
+--   mvcgen [mkFresh2]
+--   grind

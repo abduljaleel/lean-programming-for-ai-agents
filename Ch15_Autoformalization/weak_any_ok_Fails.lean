@@ -1,0 +1,13 @@
+-- Book listing around line 8496 (Ch15_Autoformalization).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- theorem weak_any_ok (c : ToolCall) (h : readFilePre_weak c) :
+--     readFilePost_weak c (.ok "") := by
+--   simp [readFilePost_weak]
+--
+-- theorem weak_passwd_path_ok :
+--     readFilePre_weak
+--       { name := "read_file"
+--         args := .obj [("path", .str "/etc/passwd")] } := by
+--   simp [readFilePre_weak]

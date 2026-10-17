@@ -1,0 +1,4 @@
+-- Book listing around line 1838 (Ch04_Typeclasses).
+-- Do not. Every String becomes a "successful" tool result.
+-- instance {α : Type} [Coe String α] : Coe String (ToolResult α) where
+--   coe s := .ok s

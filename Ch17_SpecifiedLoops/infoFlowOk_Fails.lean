@@ -1,0 +1,12 @@
+-- Book listing around line 9716 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- def infoFlowOk (w : Workflow) : Bool :=
+--   -- `prUrl` is written only at `patch`; `diff` is not read at `explore`.
+--   let patch := w.nodes.find? (·.id == nid "patch")
+--   let explore := w.nodes.find? (·.id == nid "explore")
+--   match patch, explore with
+--   | some p, some e =>
+--       p.writes.contains "prUrl" && !(e.reads.contains "diff")
+--   | _, _ => false

@@ -1,0 +1,59 @@
+-- Book listing around line 9777 (Ch17_SpecifiedLoops).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- structure StepRecord where
+--   node   : NodeId
+--   call   : ToolCall
+--   result : ToolResult Json
+--   storeIn  : Store
+--   storeOut : Store
+-- deriving Repr
+--
+-- abbrev Trajectory := List StepRecord
+--
+-- def applyWrites (n : Node) (r : ToolResult Json) (s : Store) : Store :=
+--   match n.id.name, r with
+--   | "explore",   .ok v =>
+--       (s.put "repoMap" v).put "bugReport" (v.lookup "bug" |>.getD (.str "bug"))
+--   | "reproduce", .ok v =>
+--       (s.put "reproScript" v).put "failingTest" (v.lookup "test" |>.getD (.str "t"))
+--   | "fix",       .ok v => s.put "diff" v
+--   | "verify",    .ok v =>
+--       let log := match v.lookup "log" with | some x => x | none => v
+--       let ok  := match log with
+--         | .str s => !(s.contains "FAILED")
+--         | _      => false
+--       (s.put "testLog" log).put "verifyOk" (.bool ok)
+--   | "patch",     .ok v => s.put "prUrl" v
+--   | _, _ => s
+--
+-- def checkNodePost (n : Node) (r : ToolResult Json) (s' : Store) : Bool :=
+--   match n.id.name with
+--   | "verify" =>
+--       (match r with
+--        | .ok _ =>
+--            s'.get "verifyOk" == some (.bool true) &&
+--              match s'.get "testLog" with
+--              | some (.str log) => !(log.contains "FAILED")
+--              | _ => false
+--        | _ => false)
+--   | "patch" =>
+--       (match r with | .ok v => isValidURL v | _ => false)
+--   | "explore" => isNonEmptyString (s'.get "bugReport" |>.getD .null)
+--   | "reproduce" => isNonEmptyString (s'.get "failingTest" |>.getD .null)
+--   | "fix" => isNonEmptyString (s'.get "diff" |>.getD .null)
+--   | _ => false
+--
+-- def replayStep (w : Workflow) (rec : StepRecord) : Bool :=
+--   match w.nodes.find? (·.id == rec.node) with
+--   | none => false
+--   | some n =>
+--       checkNodePre n rec.storeIn &&
+--         rec.storeOut == applyWrites n rec.result rec.storeIn &&
+--         checkNodePost n rec.result rec.storeOut
+--
+--
+-- def replay (w : Workflow) (tr : Trajectory) : Bool :=
+--   tr.all (replayStep w) &&
+--     (tr.getLast?.map (·.node) == some w.finish)

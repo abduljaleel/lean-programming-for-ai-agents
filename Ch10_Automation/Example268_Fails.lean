@@ -1,0 +1,13 @@
+-- Book listing around line 5567 (Ch10_Automation).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- example (a b c : Nat) (h1 : a = b) (h2 : b = c) : a = c := by
+--   grind
+--
+-- example (f : Nat → Nat) (a b : Nat) (h : a = b) : f a = f b := by
+--   grind
+--
+-- example (c : ToolCall) (h : c.name = "echo") :
+--     c.name ≠ "shell" := by
+--   grind

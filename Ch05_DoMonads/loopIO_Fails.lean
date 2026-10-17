@@ -1,0 +1,17 @@
+-- Book listing around line 2208 (Ch05_DoMonads).
+-- Quoted as comments because it is not a standalone Lake module
+-- (depends on surrounding text, is a sketch, or does not elaborate on its own).
+
+-- partial def loopIO : IO UInt32 := do
+--   let line ← (← IO.getStdin).getLine
+--   match decodeCall line with
+--   | none =>
+--       IO.eprintln "decode failed"
+--       return 2
+--   | some c =>
+--       if c.name == "finish" then
+--         return 0
+--       else
+--         let r ← stubTool c
+--         IO.println (repr r)
+--         loopIO
