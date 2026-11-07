@@ -1,6 +1,6 @@
 name = "lean-programming-for-ai-agents"
-version = "1.0.0"
-defaultTargets = ["book", "Myagent", "checker"]
+version = "2.0.0"
+defaultTargets = ["book", "Myagent", "checker", "ProvableInference"]
 
 [[lean_lib]]
 name = "book"
@@ -30,6 +30,9 @@ globs = [
 [[lean_lib]]
 name = "Myagent"
 srcDir = "Ch18_WorkedAgent"
+
+[[lean_lib]]
+name = "ProvableInference"
 
 [[lean_exe]]
 name = "checker"

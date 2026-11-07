@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for reading *Lean Programming for AI Agents* and for checking the listings.
+Thank you for reading *Lean Programming for AI Agents* (Second Edition: Now with Provable Inference) and for checking the listings.
 
 ## Errata
 

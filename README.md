@@ -1,11 +1,12 @@
 <p align="center">
-  <img src="assets/cover.jpg" alt="Front cover of Lean Programming for AI Agents" height="400">
+  <img src="assets/cover.jpg" alt="Front cover of Lean Programming for AI Agents, Second Edition" height="400">
 </p>
 
 <h1 align="center">Lean Programming for AI Agents</h1>
 
 <p align="center">
   <em>Verified Contracts, Specs and Proofs for Agentic Systems</em><br>
+  Second Edition: Now with Provable Inference<br>
   Abdul Kavungal (AK)<br>
   Award Winning Creations
 </p>
@@ -18,7 +19,9 @@
 
 Ask an AI agent to do something and it will propose an action, usually with a confident explanation attached. Sometimes that explanation is wrong, and the hard part is putting Lean 4 in the loop: a language you can ship, and a kernel that can say no for a reason no amount of fluent argument can get around.
 
-This repository is the companion Lake package for the book. Every Lean listing from the printed chapters lives here, one folder per chapter, using the filenames the book uses. `lake build` type-checks the live modules. Listings the book rejects, or that are not standalone modules, are quoted in `*_Fails.lean` files so the default build stays green.
+This repository is the companion Lake package for the book. Every Lean listing from the printed chapters lives here. Chapters 1 to 18 keep the first-edition examples, one folder per chapter, using the filenames the book uses. Part V, Provable Inference, adds chapters 19 to 24 as the `ProvableInference` library: toy models of the argument systems used to prove which committed model produced a reply, following the [FlashProve](https://github.com/anthropics/FlashProve/) setting.
+
+`lake build` type-checks the live modules. Listings the book rejects, or that are not standalone modules, are quoted in `*_Fails.lean` files so the default build stays green.
 
 ## Book details
 
@@ -26,22 +29,18 @@ This repository is the companion Lake package for the book. Every Lean listing f
 |---|---|
 | Title | Lean Programming for AI Agents |
 | Subtitle | Verified Contracts, Specs and Proofs for Agentic Systems |
+| Edition | Second Edition: Now with Provable Inference |
 | Author | Abdul Kavungal (AK) |
 | Publisher | Award Winning Creations |
-| Edition | 1 (first edition, 2026) |
-| Paperback ISBN | 978-1-7639286-0-2 |
-| Kindle ISBN | 978-1-7639286-1-9 |
-| Pages | 346 (KDP even count; 345-page interior) |
-| Code pin in the book | Lean 4.32.0 (13 July 2026) |
-| This repository | Lean 4.35.0 (current stable, October 2026) |
+| Readers and code | [awardwinningcreations.com/lean-code](https://awardwinningcreations.com/lean-code) |
+| Lean pin | 4.35.0 |
 
 Public repository: https://github.com/abduljaleel/lean-programming-for-ai-agents
 
-## Where to buy
+## Where to read
 
-- Amazon paperback and Kindle: link added once the listing is live
 - Publisher: [awardwinningcreations.com](https://awardwinningcreations.com)
-- This code: [awardwinningcreations.com/lean-code](https://awardwinningcreations.com/lean-code)
+- Companion code: [awardwinningcreations.com/lean-code](https://awardwinningcreations.com/lean-code)
 
 ## Who this is for
 
@@ -53,6 +52,7 @@ Software engineers, researcher-engineers, and technical leads who build, check, 
 - Tool contracts as data: a `Prop` spec, a `Bool` checker, and a theorem that the boolean is sound
 - Lake projects with a pinned `lean-toolchain`, plus a compiled checker that returns an exit code
 - The Chapter 18 `myagent` package: `Myagent.Spec`, `Myagent.Tools`, `Myagent.Loop`, and `Main.lean`, with `lake exe checker --self-test`
+- Part V: a relation and a trivial argument system; Merkle openings; sumcheck completeness; Fiat-Shamir; a toy mixture-of-experts trace checker whose accepted token is unique; a pipeline that admits only verified receipts; lookup tables; and a request ledger with a post-hoc audit queue
 
 The kernel is the referee. Prose does not check.
 
@@ -84,7 +84,7 @@ lake build
 lake exe checker --self-test
 ```
 
-`lake build` type-checks every live module. `lake exe checker --self-test` should print `ACCEPT self-test`.
+`lake build` type-checks every live module, including Part V. `lake exe checker --self-test` should print `ACCEPT self-test`.
 
 4. Open the **folder** of this package in VS Code (or VSCodium) with the official **Lean 4** extension by `leanprover`. Neovim users should use `lean.nvim`. Open the package root, not a single file from a random path. The language server reads `lean-toolchain` and the lakefile from here.
 
@@ -94,7 +94,7 @@ This package does not depend on Mathlib. You do not need `lake exe cache get`.
 
 Files named `*_Fails.lean` are quoted as comments so `lake build` stays green. Some are listings the book rejects on purpose (`sorry` fakes, strict positivity, the junk-drawer decoder). Others are fragments or sketches that need surrounding text, Aesop, or LeanCopilot. Each chapter folder's `README.md` lists every file.
 
-There are 102 live modules and 266 quoted fail files. Appendices B, D, and E have no Lean listings (API cards, the URL register, and further study), so they are not folders here.
+There are 112 live modules and 266 quoted fail files. Appendices B, D, and E have no Lean listings (API cards, the URL register, and further study), so they are not folders here.
 
 | Ch | Title | Folder | Key examples | Intentional fails |
 |---|---|---|---|---|
@@ -121,6 +121,21 @@ There are 102 live modules and 266 quoted fail files. Appendices B, D, and E hav
 
 Chapter 18 is also the executable: `lake exe checker --self-test`.
 
+## Part V. Chapters 19 to 24
+
+Part V is one Lake library, `ProvableInference`, because later chapters import earlier ones. See [`ProvableInference/README.md`](ProvableInference/README.md).
+
+| Ch | Title | Code files |
+|---|---|---|
+| 19 | Provable inference: which model answered | [`ProvableInference.lean`](ProvableInference.lean) |
+| 20 | Relations, verifiers, and the three properties | [`ProvableInference/Relation.lean`](ProvableInference/Relation.lean), [`ProvableInference/Amplify.lean`](ProvableInference/Amplify.lean) |
+| 21 | Merkle openings, sumcheck, and Fiat-Shamir | [`ProvableInference/Merkle.lean`](ProvableInference/Merkle.lean), [`ProvableInference/Sumcheck.lean`](ProvableInference/Sumcheck.lean), [`ProvableInference/FiatShamir.lean`](ProvableInference/FiatShamir.lean) |
+| 22 | A toy MoE layer, traces, and lookups | [`ProvableInference/Model.lean`](ProvableInference/Model.lean), [`ProvableInference/Lookup.lean`](ProvableInference/Lookup.lean) |
+| 23 | An agent pipeline that refuses unproved output | [`ProvableInference/Pipeline.lean`](ProvableInference/Pipeline.lean) |
+| 24 | Request budgets and post-hoc audit | [`ProvableInference/Ledger.lean`](ProvableInference/Ledger.lean) |
+
+`ProvableInference.lean` reprints the axioms of every headline theorem in Part V. `Model.lean` is also used in Chapter 20, where uniqueness of greedy decoding is stated. `Ledger.lean` continues the pipeline from Chapter 23.
+
 ## Repo layout
 
 ```
@@ -130,7 +145,7 @@ lake-manifest.json
 LICENSE                     # MIT, for the Lean listings
 CITATION.cff
 CONTRIBUTING.md
-assets/cover.jpg            # Kindle front cover, 500 x 800
+assets/cover.jpg            # Second-edition Kindle front cover, 1600 x 2560
 Ch01_WhyLean/
 Ch02_TypesTermsKernel/
 Ch03_InductiveTypes/
@@ -154,19 +169,30 @@ Ch18_WorkedAgent/           # Myagent library + checker
   Myagent/Tools.lean
   Myagent/Loop.lean
   Main.lean
+ProvableInference.lean      # Part V axiom audit
+ProvableInference/          # Chapters 19 to 24
+  Relation.lean
+  Amplify.lean
+  Merkle.lean
+  Sumcheck.lean
+  FiatShamir.lean
+  Model.lean
+  Lookup.lean
+  Pipeline.lean
+  Ledger.lean
 AppA_CheatSheet/
 AppC_LakefileTemplates/
 .github/workflows/build.yml # lake build
 .github/ISSUE_TEMPLATE/     # errata template
 ```
 
-Where the book names a file (`Certificate.lean`, `Myagent/Spec.lean`, `Main.lean`), this repo uses that name. A live file that needed earlier definitions from the same chapter has a short preamble above the printed listing, marked as preamble, so you can still match it to the page.
+Where the book names a file (`Certificate.lean`, `Myagent/Spec.lean`, `Main.lean`, `ProvableInference/Relation.lean`), this repo uses that name. A live file that needed earlier definitions from the same chapter has a short preamble above the printed listing, marked as preamble, so you can still match it to the page.
 
 ## Troubleshooting
 
 **`lake` or `lean` not found.** Source `~/.elan/env`, or add `$HOME/.elan/bin` to `PATH`. Open a new terminal after installing elan.
 
-**Toolchain mismatch.** This package pins Lean 4.35.0 in `lean-toolchain`. The book text was written against 4.32.0. If an editor shows a different version, you opened the wrong folder. Close the window and open this repository's root. `elan show` prints what the current directory requested.
+**Toolchain mismatch.** This package pins Lean 4.35.0 in `lean-toolchain`. If an editor shows a different version, you opened the wrong folder. Close the window and open this repository's root. `elan show` prints what the current directory requested.
 
 **Mathlib cache.** This repository does not depend on Mathlib, so `lake exe cache get` is not part of the build. If you add Mathlib to a fork, copy *Mathlib's* `lean-toolchain`, then run `lake exe cache get` before `lake build`. Building Mathlib from source takes hours.
 
@@ -190,11 +216,11 @@ To cite the book or this package, see [CITATION.cff](CITATION.cff).
 
 ## Errata
 
-Known differences between the printed 4.32.0 listings and this 4.35.0 package, so `lake build` succeeds on current stable Lean:
+Known differences between earlier 4.32.0 listings and this 4.35.0 package, so `lake build` succeeds on current stable Lean:
 
 1. `parseJson`: `String.drop` / `dropEnd` now return `String.Slice`. The listings append `.copy` to recover a `String`.
 2. `checkReadFilePre_sound`: `simp` closes the `false` branch of `c.name == "read_file"`, so the first `contradiction` subgoal is gone.
 3. `Main.lean`: stdin is `(← IO.getStdin).readToEnd`.
 4. `Certificate.lean`: the amount goal uses `decide` rather than `omega`, which no longer unfolds the structure fields here.
 
-If you find something else, open an errata issue. This section will grow with the book.
+If you find something else, open an errata issue.
