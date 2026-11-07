@@ -9,6 +9,7 @@ body:
       label: Edition
       description: Which printing you are looking at
       options:
+        - Second edition, 2026
         - First edition, 2026
     validations:
       required: true

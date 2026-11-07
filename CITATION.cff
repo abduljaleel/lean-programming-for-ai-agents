@@ -9,20 +9,14 @@ authors:
 repository-code: https://github.com/abduljaleel/lean-programming-for-ai-agents
 url: https://awardwinningcreations.com/lean-code
 license: MIT
-version: "1.0.0"
-date-released: "2026-10-17"
+version: "2.0.0"
+date-released: "2026-11-07"
 keywords:
   - Lean 4
   - formal verification
   - AI agents
   - tool contracts
-identifiers:
-  - type: isbn
-    value: "978-1-7639286-0-2"
-    description: Paperback
-  - type: isbn
-    value: "978-1-7639286-1-9"
-    description: Kindle
+  - provable inference
 preferred-citation:
   type: book
   title: Lean Programming for AI Agents
@@ -32,7 +26,6 @@ preferred-citation:
       given-names: Abdul
       alias: AK
   publisher: Award Winning Creations
-  isbn: "978-1-7639286-0-2"
   year: 2026
-  edition: 1
+  edition: 2
   url: https://awardwinningcreations.com
